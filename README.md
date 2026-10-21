@@ -1,1 +1,1 @@
-# Fridas-skidk-p
+# Frida måste få hjälp att välja skidor
