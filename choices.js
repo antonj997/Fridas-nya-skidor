@@ -13,4 +13,9 @@ export function swipeIntent(dx,dy,width=320){
  if(Math.abs(dx)>threshold&&Math.abs(dx)>Math.abs(dy)*.85)return dx>0?'like':'dislike';
  return null;
 }
+export function swipeFeedback(dx,dy,width=320){
+ const committed=swipeIntent(dx,dy,width),threshold=Math.min(90,Math.max(55,width*.23));
+ const choice=dy < -12&&Math.abs(dy)>Math.abs(dx)*1.1?'unsure':Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*.85?(dx>0?'like':'dislike'):null;
+ return {choice,progress:choice?Math.min(1,(choice==='unsure'?-dy:Math.abs(dx))/threshold):0,committed:Boolean(committed)};
+}
 export function nextDeck(ids,p,again=false){return ids.filter(id=>!p.hidden.includes(id)&&(again||!p.votes[id]));}

@@ -1,4 +1,4 @@
-# Frida måste få hjälp att välja skidor
+# Skidor till Frida
 
 En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages utan externa ramverk.
 
