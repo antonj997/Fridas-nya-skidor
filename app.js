@@ -1,9 +1,9 @@
-import {cleanChoices,voteFor,hideSki,selectVisible,choiceOrder,choiceNames} from './choices.js?v=20261022ux2';
-import {createExperience,choiceIcons} from './experience.js?v=20261022ux2';
-import {skis,perspectives,scoreCategories,rankSkis,filterSkis,toggleSelection,normalizeComparison} from './data.js?v=20261022ux2';
-import {media} from './media.js?v=20261022ux2';
-import {offers,priceCheck} from './offers.js?v=20261022ux2';
-import {modelVersions} from './versions.js?v=20261022ux2';
+import {cleanChoices,voteFor,hideSki,selectVisible,choiceOrder,choiceNames} from './choices.js?v=20261022glow';
+import {createExperience,choiceIcons} from './experience.js?v=20261022glow';
+import {skis,perspectives,scoreCategories,rankSkis,filterSkis,toggleSelection,normalizeComparison} from './data.js?v=20261022glow';
+import {media} from './media.js?v=20261022glow';
+import {offers,priceCheck} from './offers.js?v=20261022glow';
+import {modelVersions} from './versions.js?v=20261022glow';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>new Intl.NumberFormat('sv-SE',{maximumFractionDigits:1}).format(n);

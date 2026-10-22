@@ -448,28 +448,20 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
 .swipe-card[data-intent=like] .swipe-stamp{background:var(--like-soft);color:var(--like)}
 .swipe-card[data-intent=dislike] .swipe-stamp{background:var(--dislike-soft);color:var(--dislike)}
 .swipe-card[data-intent=unsure] .swipe-stamp{background:var(--unsure-soft);color:var(--unsure)}
-.swipe-destinations{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
-.swipe-destinations:before{content:'';position:absolute;inset:0;opacity:var(--swipe-progress);transition:opacity .15s}
-.destination{position:absolute;display:flex;flex-direction:column;align-items:center;gap:7px;padding:20px 10px;border-radius:14px;opacity:0;transition:opacity .12s,transform .2s;max-width:140px}
-.destination svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.5}
-.destination strong{font-size:22px;font-weight:500}.destination span{font-size:11px;line-height:1.5;text-align:center}
-.destination-dislike{left:12px;top:40%;color:var(--dislike);background:var(--dislike-soft);transform:translateX(-15px)}
-.destination-like{right:12px;top:40%;color:var(--like);background:var(--like-soft);transform:translateX(15px)}
-.destination-unsure{top:22px;left:50%;color:var(--unsure);background:var(--unsure-soft);transform:translate(-50%,-15px);min-width:140px}
-.deck-screen[data-intent=dislike] .swipe-destinations:before{background:linear-gradient(90deg,#f4e7e3e6,transparent 60%)}
-.deck-screen[data-intent=like] .swipe-destinations:before{background:linear-gradient(270deg,#e6eee7e6,transparent 60%)}
-.deck-screen[data-intent=unsure] .swipe-destinations:before{background:linear-gradient(180deg,#f4ecd9e6,transparent 60%)}
-.deck-screen[data-intent=dislike] .destination-dislike,.deck-screen[data-intent=like] .destination-like{opacity:var(--swipe-progress);transform:translateX(0)}
-.deck-screen[data-intent=unsure] .destination-unsure{opacity:var(--swipe-progress);transform:translate(-50%,0)}
-.deck-screen[data-committed=true] .destination{box-shadow:0 8px 35px #24242212}
+/* A diffused beam is anchored to the actual viewport edge. */
+.swipe-glow{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
+.edge-glow{position:absolute;opacity:0;pointer-events:none;filter:blur(18px);transition:opacity .12s ease-out;will-change:opacity}
+.edge-glow-like,.edge-glow-dislike{top:-10%;bottom:-10%;width:46px}
+.edge-glow-like{right:-28px;background:#57b785;box-shadow:0 0 55px 22px #57b785a6}
+.edge-glow-dislike{left:-28px;background:#d97d73;box-shadow:0 0 55px 22px #d97d73a6}
+.edge-glow-unsure{left:-10%;right:-10%;top:-28px;height:46px;background:#d8ac52;box-shadow:0 0 55px 22px #d8ac52a6}
+.deck-screen[data-intent=like] .edge-glow-like,.deck-screen[data-intent=dislike] .edge-glow-dislike,.deck-screen[data-intent=unsure] .edge-glow-unsure{opacity:var(--swipe-progress)}
 .undo-choice{min-height:44px}
 @media(min-width:761px){
  .compare-picker{grid-template-columns:repeat(4,minmax(0,1fr))}
  .compare-picker button{min-height:116px;padding:16px;font-size:14px;gap:16px}
  .compare-picker button img{width:48px;height:80px}
  .direction-guide{font-size:13px;margin-bottom:18px}.direction-guide svg{width:19px;height:19px}
- .destination-dislike{left:5vw;top:42%}.destination-like{right:5vw;top:42%}
- .destination{padding:24px}.destination-unsure{top:24px}
 }
 @media(max-width:760px){
  .header-inner{padding-left:20px;padding-right:20px;gap:12px}.header nav{flex:1;justify-content:space-between;gap:12px}
@@ -486,8 +478,6 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
  .deck-top>.text-button{font-size:11px}.deck-bottom{font-size:10px}
  .swipe-stats .score-bar>div:first-child{font-size:12px}.swipe-stats .score-bar strong,.swipe-stats .score-bar strong span{font-size:10px}
  .swipe-stats{gap:15px}.stats-caption{font-size:10px}
- .destination-dislike{left:8px}.destination-like{right:8px}
- .destination{max-width:122px}.destination strong{font-size:20px}
  .detail-top{gap:12px}.detail-choice .hide-ski{margin-left:auto}
 }
 @media(max-width:360px){
@@ -501,7 +491,7 @@ button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,su
  .compare-tray{gap:8px;padding-left:10px}.compare-tray>div{gap:8px;font-size:11px}.compare-tray .primary-button{gap:6px;padding:10px}
  .compare-tray .primary-button span{font-size:11px}
 }
-@media(prefers-reduced-motion:reduce){button,.destination,.swipe-destinations:before{transition:none!important}}
+@media(prefers-reduced-motion:reduce){button,.edge-glow{transition:none!important}}
 
 /* Review fixes: retain column identity and make decision text readable. */
 .compare-context{position:fixed;z-index:19;display:grid;grid-template-columns:22% repeat(2,minmax(0,1fr));background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 5px 12px #24242208;pointer-events:none;min-height:52px;align-items:center;font-size:13px;line-height:1.35}
