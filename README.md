@@ -9,6 +9,7 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 
 - Åtta perspektiv, inklusive sparade svep: mina val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
+- Förstoringsbar bildvisare i alla produktvyer, med nypzoom, panorering, bildbyte och tangentbordsstöd.
 - Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
@@ -25,4 +26,4 @@ Kör en statisk webbserver i projektmappen, exempelvis `python -m http.server 41
 
 ## Källor och bilder
 
-Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports, SkiEssentials, Sport Conrad, XSPO och Weareskiers. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 har ett villkorat årsval mellan25/26 och26/27; äldre159cm-erbjudandet är verifierat, nya159cm-erbjudandet är inte verifierat. Bakgrundsbilden av manchester är skapad med Imagegen; produktbilderna är källbilder. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.
+Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports, Skibahnhof, SkiEssentials, Sport Conrad, XSPO och Weareskiers. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 visar 2026/27 som förval, med 2025/26 som alternativ. Båda finns i 159 cm; äldre erbjudandets total är verifierad, det nyare är preliminärt tills svensk slutmoms bekräftats. GT80-priserna kontrollerades 22 oktober 2026. Bakgrundsbilden av manchester är skapad med Imagegen; produktbilderna är källbilder. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.
