@@ -4,7 +4,10 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 
 ## Funktioner
 
-- Sju perspektiv: Antons val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
+- Personlig start med snöbild, produktmontage och kort att svepa: Diggar, Dissar och Osäker. Tangentbord, knappar och ångra stöds.
+- Dölj och återställ modeller. Val och dolda modeller sparas lokalt.
+
+- Åtta perspektiv, inklusive sparade svep: mina val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
 - Sju subjektiva poängmätare och jämförelse av upp till fyra modeller, inklusive skillnadsfilter.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
@@ -22,4 +25,4 @@ Kör en statisk webbserver i projektmappen, exempelvis `python -m http.server 41
 
 ## Källor och bilder
 
-Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports, SkiEssentials, Sport Conrad, XSPO och Weareskiers. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 har ett villkorat årsval mellan25/26 och26/27; äldre159cm-erbjudandet är verifierat, nya159cm-erbjudandet är inte verifierat. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.
+Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports, SkiEssentials, Sport Conrad, XSPO och Weareskiers. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 har ett villkorat årsval mellan25/26 och26/27; äldre159cm-erbjudandet är verifierat, nya159cm-erbjudandet är inte verifierat. Bakgrundsbilden av manchester är skapad med Imagegen; produktbilderna är källbilder. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.

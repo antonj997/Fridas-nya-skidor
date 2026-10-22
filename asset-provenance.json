@@ -1,0 +1,11 @@
+{
+  "assets/corduroy-snow.webp": {
+    "origin": "Imagegen, generated 22 October 2026",
+    "prompt": "Photorealistic close-up of freshly groomed alpine piste snow, parallel corduroy ridges (Manchester). Low oblique camera; ridges flow diagonally from lower left to upper right. Pale morning light, fine snow crystals, luminous whites and very pale blue-grey shadows. Lighter quiet left half for dark text. No mountain landscape, sky, people, skis, buildings, graphics, typography or watermark.",
+    "original": "exec-ad0f1ab2-a673-45c7-aed2-cca197bca29d.png",
+    "use": "Decorative introduction background; not a product photograph"
+  },
+  "product-images": {
+    "origin": "See media.js and versions.js: official manufacturer, retailer and first-hand test photography. Product images have not been generated."
+  }
+}
