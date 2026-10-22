@@ -5,9 +5,9 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 ## Funktioner
 
 - Sju perspektiv: Antons val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
-- Egen adresserbar modellsida för varje skida, med fyra källbelagda bilder.
+- Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
 - Sju subjektiva poängmätare och jämförelse av upp till fyra modeller, inklusive skillnadsfilter.
-- Längdförslag för en åkare på 163 cm och 55–60 kg; radier avser den föreslagna längden.
+- Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.
 - Tangentbordsstöd, tydliga fokustillstånd och minskad rörelse.
@@ -22,4 +22,4 @@ Kör en statisk webbserver i projektmappen, exempelvis `python -m http.server 41
 
 ## Källor och bilder
 
-Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports och SkiEssentials. Bildversioner kan skilja sig från erbjudandets årsmodell eller bindning och märks i galleriet. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.
+Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produkt- och testbilder kommer från Elan Sports, SkiEssentials, Sport Conrad, XSPO och Weareskiers. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 har ett villkorat årsval mellan25/26 och26/27; äldre159cm-erbjudandet är verifierat, nya159cm-erbjudandet är inte verifierat. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.

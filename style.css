@@ -20,3 +20,74 @@ dialog{border:0;border-radius:16px;padding:0;width:min(1040px,calc(100vw - 40px)
 .header nav button{white-space:nowrap}.hero h1{font-size:clamp(48px,6vw,70px)}@media(max-width:760px){.header .edition{display:none}.header-inner{gap:12px}.header nav{gap:12px}.hero h1{font-size:49px}.hero{padding:26px 0 22px}.profile{margin-top:20px;padding-top:16px}.profile-foot{display:none}.perspectives{scrollbar-width:none}.perspectives::-webkit-scrollbar{display:none}.profile p{white-space:nowrap;font-size:17px}.rank-image{min-height:108px}}
 .detail-copy h1{font-family:DM Serif,Georgia,serif;font-size:38px;font-weight:400;line-height:1.08;letter-spacing:-.7px;margin:0 0 14px}.detail-copy h1:focus{outline:none}@media(max-width:760px){.detail-copy h1{font-size:34px}}
 .hero .intro{max-width:560px}.hero h1 em{color:var(--ink)}.about-button{max-width:160px;line-height:1.5}.detail-copy h1{font-size:38px}.header .wordmark svg{display:none}@media(max-width:760px){.header .wordmark{font-size:17px;white-space:nowrap}.hero h1{font-size:49px}.detail-copy h1{font-size:34px}}
+/* A small personal presentation, rather than a conventional website shell. */
+body{background:#f6f6ef;padding-bottom:24px}.header{position:sticky;top:12px;width:fit-content;max-width:calc(100vw - 28px);margin:12px auto 0;border:0;background:#fff;border-radius:12px;box-shadow:0 3px 22px #28342b09}.header-inner{padding:0 10px;min-height:49px;gap:15px}.header .wordmark{display:none}.header nav{gap:3px;align-self:center}.header nav button{padding:11px 19px;font-size:13px;min-height:43px;border-radius:8px}.header nav button[aria-current=page]{background:var(--ink);color:white}.header nav button[aria-current=page]:after{display:none}.header nav button[aria-current=page] #nav-count{color:var(--ink)}.about-button{font-size:11px;padding:10px 8px;margin-right:4px}.about-button span{display:none}.shell{max-width:1200px}.hero{padding:43px 0 35px;align-items:center}.letter-from{font-size:13px;color:var(--muted);margin-bottom:19px}.hero h1{font-size:clamp(43px,5.4vw,64px);line-height:1.08;letter-spacing:-1.6px}.hero .intro{max-width:480px;font-size:14px;line-height:1.8}.profile{min-width:235px;padding-left:24px}.profile div{max-width:230px}.content-head{display:none}.perspectives{padding-top:8px;gap:4px}.perspectives button{background:transparent}.filter-line{border-bottom:0;padding:9px 0 16px}.model-grid{gap:28px 22px;margin-top:14px}.model-card{transition:transform .28s cubic-bezier(.2,.8,.2,1)}.model-card:hover{transform:translateY(-5px)}.model-card-visual{height:265px;background:#eceee7;isolation:isolate;overflow:hidden}.model-card-visual>button:first-child{padding:21px}.model-card-visual img{mix-blend-mode:multiply}.model-card:nth-child(2n) .model-card-visual{background:#eee9df}.model-card:nth-child(3n) .model-card-visual{background:#e6ece8}.model-card:nth-child(4n) .model-card-visual{background:#e8e9ee}.model-card-visual>button:first-child img{transform:rotate(-5deg);transition:transform .4s cubic-bezier(.2,.8,.2,1)}.model-card:nth-child(even) .model-card-visual>button:first-child img{transform:rotate(5deg)}.model-card-visual:hover>button:first-child img{transform:rotate(0) scale(1.07)}.model-card-visual .select-ski{width:42px;height:42px}.model-card h3{font-size:18px}.model-card .brand{font-size:11px;margin-top:17px}.image-count{background:transparent;color:#546154}.card-specs{border-top:0;padding-top:0;margin-top:16px}.perspective-intro{padding:22px 0 12px;gap:30px}.perspective-intro h2{font-size:29px}.perspective-intro p{font-size:13px}.models-view .perspective-intro{display:block}.models-view .perspective-intro p{margin-top:14px;max-width:620px}.models-view .perspective-intro .kind{display:none}.models-view .perspective-intro h2{font-family:Arial,Helvetica,sans-serif;font-size:17px;font-weight:400;letter-spacing:-.2px}.learn{padding:38px 0;margin-top:30px;border-bottom:0}.learn h2{font-size:31px}.detail-top{padding-top:40px}.detail-gallery{top:95px}.gallery-thumbs{grid-template-columns:repeat(5,minmax(0,1fr))}.gallery-thumbs button{min-width:0}.compare-table-wrap{background:#fff}.compare-table th:first-child{background:#f6f6ef}.about-dialog{background:#f6f6ef}.score-method{padding-bottom:70px}.model-name-button h3{transition:color .2s}.model-card .tag{font-size:12px;line-height:1.5}.compare-tray{bottom:17px}.letter-end{font-size:13px;line-height:1.8;color:var(--muted);padding:26px 0 95px}.presentation-hint{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.header{top:9px;margin-top:9px;max-width:calc(100vw - 24px);border-radius:10px}.header-inner{padding:3px 5px;min-height:48px;gap:4px}.header nav{gap:2px}.header nav button{padding:11px 17px;font-size:12px;min-height:42px}.header .about-button{display:none}.shell{padding:0 19px}.hero{padding:30px 0 17px;display:block}.letter-from{font-size:12px;margin-bottom:16px}.hero h1{font-size:43px;line-height:1.08;letter-spacing:-1.2px;margin-bottom:18px}.hero .intro{font-size:13px;line-height:1.8;max-width:350px}.profile{display:flex;flex-wrap:wrap;align-items:center;gap:7px 15px;margin-top:20px;padding:14px 0;border-bottom:1px solid var(--line);border-top:1px solid var(--line);min-width:0}.profile-label{display:none}.profile p{margin:0;font-size:15px;white-space:nowrap}.profile div{font-size:11px;line-height:1.5;max-width:185px}.profile div br{display:none}.perspectives{margin-right:-19px;padding-right:19px;padding-top:5px}.perspectives button{font-size:12px;padding:11px 13px;min-height:44px}.filter-line{padding-bottom:5px}.filter-controls{margin-top:5px;gap:8px}.filter-controls select{max-width:125px;min-height:42px}.check-filter{font-size:11px}.model-grid{gap:26px 13px;margin-top:17px}.model-card-visual{height:225px;border-radius:12px}.model-card-visual>button:first-child{padding:16px}.model-card-visual .select-ski{width:39px;height:39px;right:8px;top:8px}.model-card h3{font-size:16px;line-height:1.2;min-height:38px;margin-bottom:6px}.model-card .brand{font-size:11px;margin-top:15px}.model-card .tag{font-size:11px;line-height:1.5;display:block;min-height:32px}.card-specs{gap:9px;margin-top:12px}.card-specs strong{font-size:13px}.card-specs span{font-size:11px}.image-count{font-size:11px;left:8px;bottom:8px}.perspective-intro{padding-top:20px}.perspective-intro h2{font-size:27px}.perspective-intro p{font-size:12px}.models-view .perspective-intro h2{font-size:16px}.models-view .perspective-intro p{font-size:12px;margin-top:10px}.learn{padding-top:25px;gap:24px}.learn h2{font-size:29px}.detail-top{padding-top:28px}.gallery-thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:3px}.gallery-thumbs button{min-width:65px;height:63px}.gallery-stage,.gallery-stage>img{height:300px}.gallery-stage .icon-button{width:43px;height:43px}.detail-copy{margin-top:25px}.detail-top .secondary-button{min-height:44px;padding:10px 13px;font-size:11px}.compare-options{flex-wrap:wrap;gap:8px}.compare-table{min-width:840px}.compare-table th:first-child{width:110px}.compare-picker button{min-height:44px}.select-ski{width:39px;height:39px}.ranking-row{grid-template-columns:22px 80px minmax(0,1fr) 39px}.rank-image{width:80px}.compare-tray{width:calc(100vw - 24px);padding:10px 10px 10px 14px}.compare-tray .primary-button{min-height:44px}.detail-copy .source-links a{line-height:1.7;padding:3px 0}.letter-end{font-size:12px}.profile-foot{display:none}}
+@media(max-width:360px){.shell{padding:0 14px}.header nav button{padding:11px 13px}.hero h1{font-size:38px}.model-card-visual{height:200px}.profile{gap:7px 10px}.profile div{max-width:165px}.model-card h3{font-size:15px}.card-specs{column-gap:9px;row-gap:10px}.ranking-row{grid-template-columns:20px 64px minmax(0,1fr) 35px;gap:7px}.rank-image{width:64px}.select-ski{width:35px;height:35px}}
+@media(prefers-reduced-motion:reduce){.model-card,.model-card img{transition:none!important}.model-card:hover{transform:none}.model-card-visual>button:first-child img{transform:none!important}}
+
+.year-choice{padding:20px 0 25px;margin-bottom:22px;border-bottom:1px solid var(--line)}.year-tabs{display:flex;gap:8px;flex-wrap:wrap}.year-tabs button{border:1px solid var(--line);border-radius:7px;min-height:44px;padding:11px 16px;font-size:12px}.year-tabs button[aria-pressed=true]{border-color:var(--accent);background:var(--accent);color:white}.year-choice>p{font-size:12px;line-height:1.8;color:var(--muted);max-width:750px;margin:18px 0 12px}.year-choice>.source-links{display:flex;flex-direction:row;gap:15px;flex-wrap:wrap}.year-choice.compact{padding:0;margin:12px 0;border:0}.year-choice.compact .year-tabs{gap:4px}.year-choice.compact button{padding:7px;min-height:35px;font-size:10px}.compare-year{display:block;font-size:11px;color:var(--muted);margin:10px 0}.wide-product{rotate:-90deg}.gallery-stage>img{rotate:0deg}.year-tabs button:focus-visible{outline-offset:3px}.detail-copy>.description{max-width:600px}.gallery-caption{line-height:1.7}.image-credit{line-height:1.8}
+@media(max-width:760px){.year-choice{padding:14px 0 20px;margin-bottom:22px}.year-tabs{gap:7px}.year-tabs button{font-size:12px;padding:12px;min-height:46px}.year-choice>p{font-size:12px}.year-choice>.source-links{flex-direction:column;gap:7px}.year-choice.compact button{min-height:40px}.gallery-stage .gallery-prev[hidden],.gallery-stage .gallery-next[hidden]{display:none}.header nav button{padding:11px 17px}.model-card-visual .wide-product{rotate:-90deg}}
+
+/* The skis lead. Sorting is compact; secondary filters open on demand. */
+::selection{background:#d5e4d8;color:var(--ink)}
+input{caret-color:var(--accent)}
+.shell{padding-bottom:90px}
+#controls{margin-top:34px}
+.overview-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:52px;margin-bottom:14px}
+.sort-control{display:flex;align-items:center;gap:10px;min-width:0}
+.sort-control>span{font-size:12px;color:var(--muted)}
+.sort-control select{min-height:44px;max-width:230px;padding:10px 24px 10px 4px;border:0;background:transparent;color:var(--ink);font-size:14px;cursor:pointer}
+.toolbar-actions{display:flex;align-items:center;gap:8px}
+#filters-toggle{font-size:12px;min-height:44px;padding:10px}
+#filters-toggle[aria-expanded=true]{color:var(--accent);text-decoration:underline;text-underline-offset:5px}
+.filter-line{padding:7px 0 20px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.recommended-length{display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--muted);margin:11px 0 0;line-height:1.5}
+.recommended-length strong{font-size:14px;font-weight:400;color:var(--ink)}
+.model-grid{margin-top:0;row-gap:34px}
+.model-card h3{margin-bottom:0}
+.model-card-visual .select-ski,.select-ski,.icon-button{min-width:44px;min-height:44px}
+.model-card-visual{background:#eceee7}
+.perspective-intro h1{font-family:DM Serif,Georgia,serif;font-size:31px;font-weight:400;letter-spacing:-.7px;line-height:1.2;margin:0 0 10px}
+.perspective-intro .kind{font-size:11px;text-transform:none;letter-spacing:0}
+.header .about-button{display:block;font-size:12px;min-width:44px;min-height:44px;margin:0;padding:10px}
+.year-choice.compact button{min-height:44px}
+.detail-identity{margin:0 0 20px}
+.detail-identity h1{font-size:38px;line-height:1.15;letter-spacing:-.7px;margin:7px 0 12px}
+.year-choice details{margin-top:8px}
+.year-choice details summary{font-size:12px;min-height:44px;padding:12px 0;cursor:pointer}
+.year-choice details p{font-size:12px;line-height:1.8;color:var(--muted);max-width:750px;margin:8px 0 15px}
+.year-choice details .source-links{margin-bottom:6px}
+.score-method summary{font-size:16px;cursor:pointer;min-height:44px;padding:10px 0}
+.score-method>p{margin-top:14px}
+.row-metric.secondary span{line-height:1.5}
+@media(max-width:760px){
+ #controls{margin-top:23px}
+ .header nav button{padding:11px 12px;min-height:44px}
+ .header-inner{gap:0}
+ .overview-toolbar{gap:6px;margin-bottom:15px}
+ .sort-control{gap:5px}
+ .sort-control>span{display:none}
+ .sort-control select{font-size:13px;max-width:190px;padding-left:0}
+ .toolbar-actions{gap:0}
+ #filters-toggle{font-size:12px;padding:10px 6px}
+ .filter-line{padding-top:0;padding-bottom:16px}
+ .filter-controls{margin-top:10px}
+ .model-grid{margin-top:0;row-gap:28px}
+ .model-card h3{min-height:38px;margin-bottom:0}
+ .model-card .brand{margin-top:13px}
+ .recommended-length{margin-top:9px;font-size:11px;gap:3px}
+ .recommended-length strong{font-size:13px}
+ .model-card-visual .select-ski{right:7px;top:7px}
+ .perspective-intro h1{font-size:28px}
+ .detail-identity h1{font-size:32px}
+ .ranking-row{grid-template-columns:22px 74px minmax(0,1fr) 44px;gap:8px}
+ .rank-image{width:74px}
+ .row-metric.secondary span{font-size:10px}
+}
+@media(max-width:360px){
+ .header nav button{padding:11px 8px}
+ .sort-control select{max-width:160px;font-size:12px}
+ .ranking-row{grid-template-columns:18px 60px minmax(0,1fr) 44px;gap:7px}
+ .rank-image{width:60px}
+}
