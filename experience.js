@@ -1,4 +1,4 @@
-import {choiceNames,swipeIntent,swipeFeedback,nextDeck} from './choices.js?v=20261022overview2';
+import {choiceNames,swipeIntent,swipeFeedback,nextDeck} from './choices.js?v=20261022overview3';
 const icon=(path,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg>`;
 const icons={like:icon('m5 12 4 4L19 6'),dislike:icon('m6 6 12 12M18 6 6 18'),unsure:icon('M12 20V4m-6 6 6-6 6 6'),arrow:icon('M4 12h16m-6-6 6 6-6 6'),undo:icon('M9 5 4 10l5 5M4 10h9a6 6 0 0 1 0 12')};
 const swipeArrows={dislike:icon('M20 12H4m6-6-6 6 6 6'),unsure:icons.unsure,like:icons.arrow};
