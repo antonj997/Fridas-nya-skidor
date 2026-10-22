@@ -5,12 +5,12 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 ## Funktioner
 
 - Personlig start med snöbild, produktmontage och kort att svepa: Diggar, Dissar och Osäker. Tangentbord, knappar och ångra stöds.
-- Dölj och återställ modeller. Val och dolda modeller sparas lokalt.
+- Dina val visar bara svepta skidor i gröna Diggar-, gula Osäker- och röda Dissar-avsnitt. Dölj och återställ modeller med svepen bevarade. Val sparas lokalt.
 
 - Åtta perspektiv, inklusive sparade svep: mina val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
-- Förstoringsbar bildvisare i alla produktvyer, med nypzoom, panorering, bildbyte och tangentbordsstöd.
-- Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter.
+- Förstoringsbar bildvisare med nypzoom, panorering, bildbyte och tangentbordsstöd. Jämförelsens väljare har ingen zoom; tabellens bilder öppnar båda skidorna sida vid sida.
+- Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter och fast namnrad med Byt skida.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.

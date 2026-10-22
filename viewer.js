@@ -4,6 +4,11 @@ export function zoomTransform(current,nextScale,point,box,pan={x:0,y:0}){
  const x=point.x-(point.x-current.x)*ratio+pan.x,y=point.y-(point.y-current.y)*ratio+pan.y;
  return {scale,x:Math.max(-limitX,Math.min(limitX,x))||0,y:Math.max(-limitY,Math.min(limitY,y))||0};
 }
+export function productImageFrame(naturalWidth,naturalHeight,bounds,width,height,horizontal=false){
+ const [left,top,w,h]=bounds||[0,0,naturalWidth,naturalHeight],ratio=Math.min(width/(horizontal?h:w),height/(horizontal?w:h));
+ const dx=naturalWidth/2-left-w/2,dy=naturalHeight/2-top-h/2;
+ return {width:naturalWidth*ratio,height:naturalHeight*ratio,x:(horizontal?dy:dx)*ratio,y:(horizontal?-dx:dy)*ratio,rotate:horizontal?-90:0};
+}
 export function createImageViewer(){
  const dialog=document.querySelector('#image-viewer'),stage=dialog.querySelector('.viewer-stage'),frame=dialog.querySelector('.viewer-image-frame'),photo=dialog.querySelector('img');
  const title=dialog.querySelector('#viewer-title'),caption=dialog.querySelector('.viewer-caption'),level=dialog.querySelector('[data-image-action=reset]'),message=dialog.querySelector('.viewer-message');

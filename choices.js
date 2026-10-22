@@ -19,3 +19,5 @@ export function swipeFeedback(dx,dy,width=320){
  return {choice,progress:choice?Math.min(1,(choice==='unsure'?-dy:Math.abs(dx))/threshold):0,committed:Boolean(committed)};
 }
 export function nextDeck(ids,p,again=false){return ids.filter(id=>!p.hidden.includes(id)&&(again||!p.votes[id]));}
+
+export function swipeGroups(skis,p){return ['like','unsure','dislike'].map(choice=>({choice,skis:selectVisible(skis,p,{choice})})).filter(group=>group.skis.length);}
