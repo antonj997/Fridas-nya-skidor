@@ -1,10 +1,10 @@
-import {createImageViewer} from './viewer.js?v=20261022photos';
-import {cleanChoices,voteFor,hideSki,selectVisible,choiceOrder,choiceNames} from './choices.js?v=20261022photos';
-import {createExperience,choiceIcons} from './experience.js?v=20261022photos';
-import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261022photos';
-import {media} from './media.js?v=20261022photos';
-import {offers,priceCheck} from './offers.js?v=20261022photos';
-import {modelVersions} from './versions.js?v=20261022photos';
+import {createImageViewer} from './viewer.js?v=20261022controls';
+import {cleanChoices,voteFor,hideSki,selectVisible,choiceOrder,choiceNames} from './choices.js?v=20261022controls';
+import {createExperience,choiceIcons} from './experience.js?v=20261022controls';
+import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261022controls';
+import {media} from './media.js?v=20261022controls';
+import {offers,priceCheck} from './offers.js?v=20261022controls';
+import {modelVersions} from './versions.js?v=20261022controls';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>new Intl.NumberFormat('sv-SE',{maximumFractionDigits:1}).format(n);
