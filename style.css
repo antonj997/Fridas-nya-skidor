@@ -712,7 +712,7 @@ html.viewer-mode{overflow:hidden}
 
 /* Compact navigation; saved choices and the full ranking have distinct jobs. */
 :root{--box-border:#b7bab1}
-.model-card,.swipe-card,.card-under,.ranking-row,.compare-pick,.compare-table-wrap,.offer-card,.year-choice,.about-dialog,.gallery-stage,.empty{border:1px solid var(--box-border)}
+.model-card,.swipe-card,.card-under,.ranking-row,.compare-pick,.compare-table-wrap,.compare-tray,.offer-card,.year-choice,.about-dialog,.gallery-stage,.empty{border:1px solid var(--box-border)}
 .model-card{box-shadow:none}
 .offer-card{padding:18px;border-radius:12px}
 .gallery-stage{border-radius:12px;overflow:hidden}
