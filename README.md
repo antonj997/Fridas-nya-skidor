@@ -9,7 +9,7 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 
 - Åtta perspektiv, inklusive sparade svep: mina val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
-- Sju subjektiva poängmätare och jämförelse av upp till fyra modeller, inklusive skillnadsfilter.
+- Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.

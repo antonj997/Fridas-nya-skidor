@@ -18,15 +18,13 @@ peregrine:[12.2,'2025/26–2026/27','https://volkl.com/en-us/p/peregrine-80-skis
 phoenix:[14,'2026/27','https://www.blizzard-tecnica.com/us/en/collection/women/skis/phoenix/phoenix-r14-pro-tpx12-demo-w-2'],
 gtx:[13.5,'2026/27','https://www.power-ski.at/products/fischer-the-curv-noize-gtx-set-2627']};
 export const scoreCategories=[
-{id:'initiation',label:'Svängstart',description:'5: mycket lätt att initiera. 1: kräver tydlig och precis insats.'},
-{id:'flexEase',label:'Böjbarhet för dig',description:'5: relativt lätt att böja genom svängen. 1: stort krav på aktiv belastning.'},
-{id:'comfort',label:'Heldagskomfort',description:'5: förlåtande vid lugnare åkning och under långa dagar. 1: kräver ständig koncentration.'},
-{id:'grip',label:'Kantgrepp',description:'5: mycket starkt grepp på hård pist. 1: begränsat stöd.'},
-{id:'stability',label:'Fartstabilitet',description:'5: stort stöd vid högre fart och belastning. 1: begränsad stabilitet.'},
-{id:'versatility',label:'Mångsidighet i pist',description:'5: flexibel i olika svängar, uppkörd pist och vårsnö. 1: smalt användningsområde.'},
-{id:'growth',label:'Utvecklingspotential',description:'5: stort utrymme för högre teknisk nivå. 1: tidigt prestandatak. Styvhet ensam ger inte bättre progression.'}
+{id:'grip',label:'Kantgrepp',description:'Grepp på hård pist.'},
+{id:'stability',label:'Stabilitet',description:'Lugn och stöd i högre fart.'},
+{id:'agility',label:'Svängvillighet',description:'Hur lätt skidan växlar kant och styr in.'},
+{id:'forgiveness',label:'Förlåtande',description:'Hur väl skidan tolererar misstag och lugnare åkning.'},
+{id:'versatility',label:'Mångsidighet',description:'Olika svängar och snöförhållanden i pist.'}
 ];
-const editorialScores={elan:[5,5,5,4,3,4,4],gt80:[4,4,4,4,4,5,5],addikt:[5,3,4,4,4,4,5],forza:[5,3,3,4,4,3,5],mx74:[4,3,4,5,5,3,5],peregrine:[4,3,4,4,4,5,5],phoenix:[4,2,3,5,5,2,5],gtx:[4,2,3,5,5,3,5]};
+const editorialScores={elan:[4,3,5,5,4],gt80:[4,4,4,4,5],addikt:[4,4,5,4,4],forza:[4,4,5,3,3],mx74:[5,5,4,4,3],peregrine:[4,4,4,4,5],phoenix:[5,5,4,3,2],gtx:[5,5,4,3,3]};
 for(const ski of skis){const [radius,season,radiusSource]=preciseRadii[ski.id];ski.radius=radius;ski.radiusLength=ski.length;ski.season=season;ski.radiusSource=radiusSource;ski.scores=Object.fromEntries(scoreCategories.map((c,i)=>[c.id,editorialScores[ski.id][i]]));}
 skis.find(s=>s.id==='peregrine').radiusProfile='21,6 / 12,2 / 19,5 m vid 162 cm (nos / mitt / bakdel).';
 skis.find(s=>s.id==='phoenix').note='Aktuell prisjämförelse gäller 2026/27: tillverkaren anger 14 m radie vid 160 cm. Äldre 2025/26-katalog anger 12,5 m vid samma längd. Bilderna gäller 2026/27, medan testunderlaget huvudsakligen gäller äldre version. Kontrollera därför version vid provåkning; använd inte äldre radie för 2026/27.';
@@ -34,15 +32,27 @@ skis.find(s=>s.id==='addikt').note='Rekommenderad längd 163 cm har 13 m radie e
 skis.find(s=>s.id==='mx74').note='Modern MX74 med Infini Core AMTN: 123–74–103 mm och 14 m radie vid 164 cm. Äldre MX74 har andra längdsteg och mått.';
 skis.find(s=>s.id==='gtx').note='Noize-generationen 2026/27. Radie 13,5 m vid 161 cm enligt två specialistbutikers längdtabeller. Tillverkarens sida saknar denna längds radie. Svårighetsplaceringen är särskilt osäker.';
 skis.find(s=>s.id==='peregrine').note='Vid 162 cm är mittens radie 12,2 m. 3D Radius har också 21,6 m i nos och 19,5 m bak. En ensam radiesiffra beskriver därför inte hela geometrin.';
+const shortNotes={
+elan:{tag:'Följsam',good:'Lättsvängd och följsam i varierat tempo.',bad:'Mindre stöd i hög fart. Har en vänster- och högerskida.',reason:'Mest följsam i urvalet.'},
+gt80:{tag:'Mitt förstaval',good:'Bra balans mellan kantgrepp, kontroll och följsamhet.',bad:'80 mm ger långsammare kantväxling än de smalaste alternativen.',reason:'Mitt förstaval för balansen mellan stöd och lätthet.'},
+addikt:{tag:'Livlig carving',good:'Snabb kantväxling och mycket energi ur svängen.',bad:'Rebounden kräver aktiv åkning.',reason:'Mitt andraval för livlig carving.'},
+forza:{tag:'Tydlig carvingkänsla',good:'Bred nos som hjälper skidan in i skärande svängar.',bad:'Kräver tydlig belastning för att böjas genom hela svängen.',reason:'Tydlig carvingkänsla med snabb svängstart.'},
+mx74:{tag:'Lugn och precis',good:'Lugn och precis med starkt grepp på hård pist.',bad:'Mindre lekfull i lugn fart.',reason:'För precision och stabilitet.'},
+peregrine:{tag:'Mångsidig i pist',good:'Stabil carving som även fungerar i mjuk och uppkörd pist.',bad:'Bredare och mindre kvick än en smal hårdsnöskida.',reason:'Provåkningsalternativet till GT 80.'},
+phoenix:{tag:'Precision på hård pist',good:'Precist kantgrepp och stort stöd i hög fart.',bad:'Fast, smal och mer krävande vid lugn åkning.',reason:'För aktiv carving på hård pist.'},
+gtx:{tag:'Kraftfull carving',good:'Kraftfullt grepp och dämpning för aktiv carving.',bad:'Kräver mer aktiv belastning än de följsammaste alternativen.',reason:'För dig som prioriterar stöd och motstånd.'}
+};
+for(const ski of skis){Object.assign(ski,shortNotes[ski.id]);ski.ability=['addikt','mx74','phoenix','gtx'].includes(ski.id)?'advanced':'intermediate-advanced';}
 export const perspectives={
-anton:{label:'Mina val',title:'Det här skulle jag välja åt dig.',description:'Jag skulle börja med GT 80. Addikt är mitt andra val för mer dynamisk carving. GTX är också intressant om du vill ha mer motstånd och stabilitet. Resten har jag grupperat, snarare än gett en exakt köprankning.',kind:'Subjektiv rekommendation',key:'anton'},
-reviews:{label:'Bäst recensioner',title:'Det jag tar med mig från testerna.',description:'Jag har vägt ihop testernas helhetsintryck: tydliga toppomdömen först, sedan övriga positiva tester på delad plats. Detta är min tolkning av testerna, inget gemensamt snittbetyg. Olika paneler, årsmodeller och längder är inte direkt jämförbara.',kind:'Redaktionell testsammanvägning',key:'review'},
-difficulty:{label:'Svårighetsgrad',title:'Från följsam till krävande.',description:'Min bedömning: lättast att kontrollera och böja först. Plats 3–6 ligger nära. Peregrine och GTX kan kännas mer tillgängliga än placeringen antyder. Ingen laboratoriemätt flexskala.',kind:'Subjektiv · för dig',key:'difficulty'},
-potential:{label:'Utvecklingspotential',title:'Vad du kan utvecklas med.',description:'Jag ger sju modeller ”Utmärkt” och Elan ”Mycket bra”. Därför delar sju förstaplatsen. Styvare är inte automatiskt bättre: du behöver kunna böja skidan vid din vanliga fart.',kind:'Subjektiv · delade placeringar',key:'potential'},
-width:{label:'Bredd',title:'Smalare eller bredare?',description:'Midjebredd i millimeter, smalast först. Bredd beskriver plattformen, inte flexen: smalt kan ge snabb kantväxling, medan mer bredd kan ge stöd i mjuk och uppkörd pist.',kind:'Modellfakta · millimeter',key:'width'},
-radius:{label:'Radie',title:'Radie vid rekommenderad längd.',description:'Radien vid varje modells rekommenderade längd, kortast först. För Peregrine används mittens radie. Phoenix visar tillverkarens nya 2026/27-värde: 14 m vid 160 cm; äldre version har 12,5 m. Samma radie betyder inte samma flex eller svängkänsla.',kind:'Modellfakta · vid rekommenderad längd',key:'radius'},
-price:{label:'Pris till Sverige',title:'Pris, lager och frakt till Sverige.',description:'Lägsta verifierade totalpris först, sedan preliminära erbjudanden och okända sist. Skidor med bindning i rekommenderad längd. Priser och lager är en ögonblicksbild från 21 oktober 2026. Europriser märks separat när svensk slutmoms inte är bekräftad.',kind:'Pris + svensk frakt · daterad kontroll',key:'totalSek'}
+anton:{label:'Rekommendationer',title:'Rekommendationer',description:'GT 80 först, Addikt för mer livlig carving.',kind:'Subjektiv rekommendation',key:'anton'},
+reviews:{label:'Bäst recensioner',title:'Testomdömen',description:'Min tolkning av testerna, inte ett snittbetyg.',kind:'Redaktionell testsammanvägning',key:'review'},
+difficulty:{label:'Svårighetsgrad',title:'Svårighetsgrad',description:'Mest följsam först. Placeringarna är ungefärliga.',kind:'Subjektiv · för dig',key:'difficulty'},
+potential:{label:'Utvecklingspotential',title:'Utvecklingspotential',description:'Utrymme att utvecklas. Styvare är inte automatiskt bättre.',kind:'Subjektiv · delade placeringar',key:'potential'},
+width:{label:'Bredd',title:'Midjebredd',description:'Smalast först. Bredare skidor ger mer stöd i mjuk pist.',kind:'Modellfakta · millimeter',key:'width'},
+radius:{label:'Radie',title:'Svängradie',description:'Kortast radie först, alltid vid rekommenderad längd.',kind:'Modellfakta · vid rekommenderad längd',key:'radius'},
+price:{label:'Pris till Sverige',title:'Pris till Sverige',description:'Inklusive frakt. Verifierade totalpriser först.',kind:'Pris + svensk frakt · daterad kontroll',key:'totalSek'}
 };
 export function rankSkis(items,perspective='anton',reverse=false){const key=perspectives[perspective]?.key||'anton';return [...items].sort((a,b)=>{if(key==='totalSek'){const tier=s=>s.offer?.verified?0:Number.isFinite(s.totalSek)?1:2;const t=tier(a)-tier(b);if(t)return t;}const av=a[key],bv=b[key];if(!Number.isFinite(av)||!Number.isFinite(bv))return Number.isFinite(av)?-1:Number.isFinite(bv)?1:a.difficulty-b.difficulty;const delta=key==='potential'?bv-av:av-bv;return (reverse?-delta:delta)||a.difficulty-b.difficulty;});}
 export function filterSkis(items,{query='',shortlist=false,width='all',effort='all'}={}){return items.filter(s=>(!shortlist||s.shortlist)&&(`${s.brand} ${s.name}`.toLocaleLowerCase('sv').includes(query.trim().toLocaleLowerCase('sv')))&&(width==='all'||(width==='narrow'?s.width<=75:s.width>=76))&&(effort==='all'||(effort==='easier'?s.difficulty<=4:s.difficulty>=5)));}
-export function toggleSelection(ids,id){return ids.includes(id)?ids.filter(x=>x!==id):ids.length<4?[...ids,id]:ids;}
+export function toggleSelection(ids,id){return ids.includes(id)?ids.filter(x=>x!==id):ids.length<2?[...ids,id]:ids;}
+export function normalizeComparison(ids,available){return Array.isArray(ids)?[...new Set(ids.filter(id=>available.includes(id)))].slice(0,2):[];}

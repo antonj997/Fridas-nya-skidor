@@ -293,3 +293,75 @@ body.experience-mode{padding:0}
  .swipe-card-heading .brand,.swipe-season,.stiffness small{font-size:10px}
  .swipe-price p{max-width:125px}
 }
+
+/* Five familiar properties, a separate ability range, and explicit actions. */
+.ability-scale{margin:22px 0;font-size:11px;line-height:1.5}
+.ability-caption{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px;color:var(--muted)}
+.ability-caption strong{font-weight:400;color:var(--ink);font-size:11px}
+.ability-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;height:5px}
+.ability-track i{background:#e4e5de;display:block}
+.ability-track i.active{background:#555d50}
+.ability-labels{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:10px;margin-top:7px}
+.swipe-card>.ability-scale{margin:0 0 16px;padding-top:3px}
+.swipe-product{grid-template-rows:220px}
+.swipe-stats{gap:18px}
+.model-card-heading{display:block;min-height:80px}
+.model-card-heading .choice-label{display:block;margin-top:8px;font-size:11px}
+.select-ski,.model-card-bottom .select-ski{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:auto;height:auto;min-width:80px;min-height:44px;padding:10px 12px;border:1px solid #b8bbb1;border-radius:6px;background:transparent;font-size:12px;line-height:1.2}
+.select-ski svg{width:16px;height:16px;flex:none}
+.select-ski[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.ranking-row{grid-template-columns:42px 132px minmax(180px,1fr) 120px 100px 82px}
+.ranking-row>.select-ski{min-width:80px;padding-left:8px;padding-right:8px}
+.detail-copy>.detail-specs{margin-top:0}
+.detail-copy h3{font-size:14px;margin-top:24px}
+.review-links{margin:24px 0 18px!important}
+.review-links a,.row-copy p a{color:var(--accent)}
+.shop-link{display:inline-flex;min-height:44px;align-items:center;font-size:13px;margin:5px 0}
+.offer-card>details{margin-bottom:8px}
+.compare-heading{padding-top:30px}
+.compare-heading h1{font-size:38px;letter-spacing:-.8px;margin-bottom:14px}
+.compare-heading p{font-size:13px;color:var(--muted);line-height:1.6}
+.compare-table{min-width:0;table-layout:fixed;width:100%}
+.compare-table th:first-child{width:22%}
+.compare-table thead th{overflow:hidden}
+.compare-table .ability-scale{margin:0}
+.compare-table .ability-caption>span{display:none}
+.compare-table .ability-caption strong{font-size:11px}
+.compare-table .ability-labels span:nth-child(2){display:none}
+.compare-picker button:disabled{opacity:.4;cursor:not-allowed}
+@media(max-height:740px) and (min-width:761px){.swipe-product{grid-template-rows:185px}.swipe-stats{gap:15px}}
+@media(max-width:1000px) and (min-width:761px){.ranking-row{grid-template-columns:30px 90px minmax(140px,1fr) 100px 85px 80px;gap:15px}}
+@media(max-width:760px){
+ .model-card-heading{min-height:76px}
+ .select-ski,.model-card-bottom .select-ski{min-width:76px;padding:9px 11px;font-size:11px}
+ .swipe-product{grid-template-rows:180px}
+ .swipe-stats{gap:16px}
+ .ability-scale{margin:20px 0}
+ .ability-caption,.ability-caption strong{font-size:11px}
+ .ability-labels{font-size:10px}
+ .swipe-card>.ability-scale{margin:0 0 14px}
+ .ranking-row{grid-template-columns:20px 65px minmax(0,1fr) 76px;gap:8px}
+ .ranking-row>.select-ski{min-width:76px;font-size:11px;padding:10px 6px}
+ .rank-image{width:65px}
+ .compare-heading{padding-top:24px}
+ .compare-heading h1{font-size:31px}
+ .compare-table{min-width:0;font-size:11px}
+ .compare-table th:first-child{width:26%;font-size:10px}
+ .compare-table th,.compare-table td{padding:14px 7px;overflow-wrap:anywhere}
+ .compare-table h3{font-size:15px}
+ .compare-table .brand{font-size:10px}
+ .compare-table .ability-caption strong{font-size:10px;line-height:1.5}
+ .compare-table .ability-labels{font-size:9px;gap:3px}
+ .compare-table .year-choice.compact button{font-size:10px;padding:7px}
+ .compare-table .score-bar>div:first-child{display:block;text-align:right;margin-bottom:8px}
+ .compare-table .score-bar strong{font-size:12px}
+ .compare-table .source-links a{font-size:11px}
+ .compare-options>span{display:none}
+ .compare-tray .primary-button{font-size:11px;padding:11px}
+ .compare-tray .primary-button span{margin-left:5px}
+}
+@media(max-width:360px){.swipe-product{grid-template-rows:170px}.swipe-stats{gap:14px}.ranking-row{grid-template-columns:18px 54px minmax(0,1fr) 72px;gap:6px}.ranking-row>.select-ski{min-width:72px;font-size:10px}.rank-image{width:54px}}
+.compare-edit{margin:12px 0 20px;font-size:12px}
+.compare-edit summary{cursor:pointer;min-height:44px;padding:12px 0}
+.compare-edit .compare-picker{margin-top:12px}
+@media(max-width:360px){.compare-table th:first-child{width:30%}}
