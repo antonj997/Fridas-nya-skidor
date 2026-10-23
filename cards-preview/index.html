@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="sv">
+<head><base href="../">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f8f4"><meta name="description" content="Åtta pistskidor. Svep, välj och jämför. Min jämförelse till Frida, med tester, längder, radier och priser till Sverige.">
+<title>Skidor till dig, Frida</title>
+<link rel="preload" href="assets/corduroy-snow.webp" as="image"><link rel="stylesheet" href="cards-preview/style.css?v=20261024cards1">
+</head>
+<body>
+<a class="skip" href="#content">Till innehållet</a>
+<header class="header"><div class="header-inner"><a class="wordmark" href="#start" aria-label="Till startsidan"><svg viewBox="0 0 28 30" aria-hidden="true"><path d="M6 25 15 5M14 25 23 5"/></svg>Till Frida</a><nav aria-label="Vyer"><button data-view="models"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg><span class="nav-label">Dina val</span></button><button data-view="ranking"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10h5v10M9 20V4h6v16M15 20v-7h5v7M3 20h18"/></svg><span class="nav-label">Topplista</span></button><button data-view="compare"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/></svg><span class="nav-label">Jämför</span> <span id="nav-count">0</span></button></nav><button class="swipe-nav" data-view="deck">Välj med svep</button><button class="about-button" data-about aria-label="Om guiden" title="Om guiden"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4M12 17.5h.01"/></svg></button></div></header>
+<main id="top" class="shell">
+<div class="home-heading-wrap" hidden><h1 id="home-heading" class="home-heading" hidden>Dina skidval</h1><div class="home-actions"><button id="hidden-models" class="text-button" data-show-hidden hidden></button><button class="home-swipe" data-view="deck">Välj med svep</button></div></div>
+<section id="controls" aria-label="Dina val och sortering" hidden>
+<div id="choice-filters" class="choice-filters" role="group" aria-label="Visa dina svepval"></div>
+<div class="overview-toolbar"><label class="sort-control"><span>Rangordna skidorna efter</span><select id="perspective-select" aria-label="Sortera efter"></select></label><div class="toolbar-actions"><button id="reverse" class="sort-direction" title="Vänd sorteringen" aria-label="Vänd sorteringen" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4v16m-4-4 4 4 4-4M16 20V4m-4 4 4-4 4 4"/></svg><span>Lägst först</span></button></div></div>
+</section>
+<section id="content" tabindex="-1" aria-label="Skidjämförelse"></section>
+
+
+</main>
+<div id="compare-tray" class="compare-tray" hidden><div><span id="tray-count"></span><button id="clear-selection" class="text-button">Rensa</button></div><button class="primary-button" data-view="compare"><span>Jämför skidorna</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div>
+
+<dialog id="about-dialog" class="about-dialog" aria-labelledby="about-title"><button class="dialog-close icon-button" aria-label="Stäng"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><h2 id="about-title">Om uppgifterna</h2><p>Egenskaper (1–5), åkarnivå och rekommendationer är mina bedömningar. Högre poäng betyder mer av egenskapen.</p><p>Modellfakta och tester länkas på varje skida. Tester kan gälla andra längder eller årsmodeller. SkiEssentials är även återförsäljare.</p><p>Radien gäller rekommenderad längd. Bilder kan visa en annan längd av samma modell.</p><p>Priser och lager kontrollerades 21 oktober 2026. GT 80:s årsmodeller kontrollerades igen 22 oktober 2026. SkiStar kontrollerades 23 oktober 2026.</p><h3>Dina val</h3><p>Svep och dolda skidor sparas i den här webbläsaren.</p><button class="secondary-button" data-clear-choices>Rensa mina svep</button></dialog>
+
+<dialog id="design-viewer" class="design-viewer" aria-labelledby="design-title"><header><h2 id="design-title">Jämför design</h2><button class="icon-button" data-close-design aria-label="Stäng bildjämförelsen" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header><div id="design-pair" class="design-pair"></div></dialog>
+<dialog id="image-viewer" class="image-viewer" aria-labelledby="viewer-title"><header class="viewer-header"><h2 id="viewer-title"></h2><button data-image-action="close" class="icon-button" aria-label="Stäng bildvisaren" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header><div class="viewer-stage" aria-label="Skidbild. Nyp för att zooma och dra för att flytta."><div class="viewer-image-frame"><img draggable="false" alt=""></div><p class="viewer-message" hidden></p></div><footer class="viewer-footer"><div class="viewer-tools"><div class="viewer-navigation"><button class="icon-button" data-image-action="prev" aria-label="Föregående bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button><button class="icon-button" data-image-action="next" aria-label="Nästa bild"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button></div><div class="viewer-zoom"><button class="icon-button" data-image-action="out" aria-label="Zooma ut"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><button data-image-action="reset" aria-label="Återställ zoom">1×</button><button class="icon-button" data-image-action="in" aria-label="Zooma in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button></div></div><p class="viewer-caption" aria-live="polite"></p><p class="viewer-help">Nyp eller använd + för att zooma. Dra för att flytta.</p></footer></dialog>
+
+<div id="announcement" class="sr-only" role="status" aria-live="polite"></div><div id="toast" class="toast" role="status" hidden></div>
+<script type="module" src="cards-preview/app.js?v=20261024cards1"></script>
+</body></html>
