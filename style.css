@@ -988,12 +988,12 @@ html[data-input-mode=pointer] :focus{outline:none}
 .intro-screen .reveal-cta:hover{background:#264e43;transform:translateY(-1px)}
 .intro-screen .reveal-cta svg{width:20px;height:20px}
 .intro-signature{left:max(4vw,28px);bottom:max(24px,env(safe-area-inset-bottom));color:var(--muted)}
-.intro-beat{animation:intro-thought-in .65s cubic-bezier(.16,1,.3,1) both}
-.intro-greeting{animation-delay:.08s}
-.intro-lead{animation-delay:1.25s}
-.intro-directions{animation-delay:2.55s}
-.intro-action{animation-delay:4.75s}
-@keyframes intro-thought-in{from{opacity:0;filter:blur(2px);transform:translateY(6px);visibility:hidden}to{opacity:1;filter:blur(0);transform:translateY(0);visibility:visible}}
+.intro-beat{animation:intro-thought-in 1.6s cubic-bezier(.4,0,.2,1) both}
+.intro-greeting{animation-delay:.12s}
+.intro-lead{animation-delay:2.1s}
+.intro-directions{animation-delay:4.2s}
+.intro-action{animation-delay:6.9s}
+@keyframes intro-thought-in{from{opacity:0;filter:blur(1px);transform:translateY(4px);visibility:hidden}to{opacity:1;filter:blur(0);transform:translateY(0);visibility:visible}}
 @media(max-width:760px){
  .intro-screen{padding:108px 28px 84px}
  .intro-screen::after{background:linear-gradient(180deg,#f8f8f4eb 0%,#f8f8f4db 33%,#f8f8f4b0 66%,#f8f8f430 100%)}
