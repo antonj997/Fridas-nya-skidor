@@ -14,6 +14,7 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 - Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter och fast namnrad med Byt skida.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
+- Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 23 oktober 2026; Fridas 20 % rabatt beräknas på skidpaketet före 199 kr skidfrakt. Äldre GT80 skiljs från senaste versionen.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.
 - Tangentbordsstöd, tydliga fokustillstånd och minskad rörelse.
 

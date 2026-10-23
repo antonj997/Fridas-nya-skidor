@@ -862,6 +862,64 @@ dialog.image-viewer[open]{display:grid;grid-template-rows:auto minmax(0,1fr) aut
 /* Quiet pointer focus, clear keyboard focus, and a compact icon-led navigation. */
 :focus:not(:focus-visible){outline:none}
 html[data-input-mode=pointer] :focus{outline:none}
+
+/* Personal recommendations and additional prices stay subordinate to the ski. */
+.alwa-asterisk{display:inline-block;width:13px;height:13px;flex:none;fill:none;stroke:#a67b22;stroke-width:1.7;stroke-linecap:round;vertical-align:middle}
+.price-asterisk{display:inline-flex;margin-left:3px;vertical-align:super;line-height:0}
+.price-asterisk .alwa-asterisk{width:10px;height:10px}
+.alwa-recommendation{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:400;line-height:1.35;color:#79571b;margin:4px 0 7px;letter-spacing:0}
+.alwa-price-note{display:flex;align-items:center;gap:4px;font-size:11px;line-height:1.4;color:var(--muted);font-weight:400}
+.price-extras{display:grid;gap:6px;margin-top:7px}
+.price-extras:empty{display:none}
+.skistar-inline{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 7px;color:var(--accent);font-size:12px;line-height:1.4;text-decoration:none;max-width:100%}
+.skistar-inline>span{text-decoration:underline;text-underline-offset:3px}
+.skistar-inline b{font-weight:500;white-space:nowrap}
+.skistar-inline>small{font-size:11px;color:var(--muted)}
+.skistar-inline:hover>span{text-decoration-thickness:2px}
+.ranking-row .price-extras{margin-top:3px;gap:5px}
+.ranking-row .skistar-inline>span{font-size:11px;margin:0;color:var(--accent)}
+.ranking-row .alwa-price-note{font-size:11px}
+.ranking-row .alwa-recommendation{font-size:11px;margin:0 0 7px}
+.model-card .model-card-price .price-extras{margin-top:7px}
+.model-card .model-card-price .skistar-inline>span{font-size:12px;text-align:left;min-height:0;color:var(--accent)}
+.model-card .model-card-price .skistar-inline>small{font-size:11px}
+.detail-identity>.alwa-recommendation{margin:10px 0 16px;font-size:14px}
+.offer-card>.alwa-price-note{margin:8px 0 12px}
+.skistar-offer{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.skistar-offer h4,.skistar-breakdown h4{font-size:14px;font-weight:500;margin:0 0 10px}
+.skistar-offer h4>span{font-size:11px;color:var(--muted);font-weight:400;margin-left:5px}
+.offer-card .skistar-unavailable{font-size:12px;margin:16px 0 4px;color:var(--muted)}
+.skistar-breakdown{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.compare-table .alwa-recommendation{margin:8px 0}
+.compare-table .alwa-price-note{margin-top:8px}
+.skistar-context{display:block;font-size:11px;color:var(--muted);line-height:1.5;margin:5px 0}
+.picker-name .alwa-recommendation{font-size:11px;margin-bottom:0}
+.swipe-card-heading .alwa-recommendation{font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:5px 0 0}
+.swipe-price{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px}
+.swipe-price>p{justify-self:end;margin:0;text-align:right}
+.swipe-price>.price-extras{grid-column:1/-1;display:grid;gap:5px;margin-top:7px}
+.swipe-price>.price-extras:empty{display:none}
+.swipe-price .alwa-price-note{font-size:11px;line-height:1.3}
+.swipe-price .skistar-inline{font-size:11px;gap:2px 6px}
+.swipe-price .skistar-inline>span,.swipe-price .skistar-inline>small{font-size:11px;max-width:none}
+@media(max-width:760px){
+ .ranking-row .price-extras{width:100%}
+ .ranking-row .skistar-inline{font-size:11px}
+ .compare-table .alwa-recommendation{font-size:11px;align-items:flex-start}
+}
+@media(max-width:600px){
+ .ranking-row[data-price-view=true]{grid-template-columns:22px 62px minmax(0,1fr);gap:8px 10px}
+ .ranking-row[data-price-view=true] .row-copy{grid-column:3;grid-row:1}
+ .ranking-row[data-price-view=true]>.select-ski{grid-column:3;grid-row:2;justify-self:start;align-self:end;margin:0}
+ .ranking-row[data-price-view=true] .row-metric:not(.secondary){grid-column:1/-1;grid-row:3;display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 9px;padding-top:10px;border-top:1px solid var(--line)}
+ .ranking-row[data-price-view=true] .row-metric>span{margin:0;font-size:11px}
+ .ranking-row[data-price-view=true] .row-metric .price-extras{flex-basis:100%;margin-top:2px;gap:5px}
+}
+@media(max-height:500px) and (min-width:600px){
+ .swipe-card-heading .alwa-recommendation{margin:0 0 0 10px}
+ .swipe-price{gap:0 8px;align-content:start}
+ .swipe-price>.price-extras{gap:3px;margin-top:4px}
+}
 .header-inner{min-height:80px;gap:24px;padding-top:14px;padding-bottom:14px}
 .header nav{align-self:center;align-items:center;gap:8px}
 .header nav button,.header nav button[aria-current=page]{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 14px;border-radius:9px;background:transparent;color:var(--muted);font-size:13px;font-weight:400;text-decoration:none;white-space:nowrap;transition:background .18s,color .18s}
