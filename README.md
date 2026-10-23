@@ -4,7 +4,7 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 
 ## Funktioner
 
-- Personlig start med snöbild, produktmontage och kort att svepa: Diggar, Dissar och Osäker. Tangentbord, knappar och ångra stöds.
+- Personlig start med snöbild och stegvis välkomsttext, produktmontage och kort att svepa: Diggar, Dissar och Osäker. Tangentbord, knappar och ångra stöds.
 - Efter sista svepet öppnas Dina val direkt och korten delas ut från kortleken till sina kategorier med bibehållna proportioner. Escape eller scroll avbryter; minskad rörelse stöds.
 - Dina val visar bara svepta skidor i gröna Diggar-, gula Osäker- och röda Dissar-avsnitt. Dölj och återställ modeller med svepen bevarade. Val sparas lokalt.
 
