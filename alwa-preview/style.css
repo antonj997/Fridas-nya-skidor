@@ -907,6 +907,14 @@ html[data-input-mode=pointer] :focus{outline:none}
  .ranking-row .skistar-inline{font-size:11px}
  .compare-table .alwa-recommendation{font-size:11px;align-items:flex-start}
 }
+@media(max-width:600px){
+ .ranking-row[data-price-view=true]{grid-template-columns:22px 62px minmax(0,1fr);gap:8px 10px}
+ .ranking-row[data-price-view=true] .row-copy{grid-column:3;grid-row:1}
+ .ranking-row[data-price-view=true]>.select-ski{grid-column:3;grid-row:2;justify-self:start;align-self:end;margin:0}
+ .ranking-row[data-price-view=true] .row-metric:not(.secondary){grid-column:1/-1;grid-row:3;display:flex;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 9px;padding-top:10px;border-top:1px solid var(--line)}
+ .ranking-row[data-price-view=true] .row-metric>span{margin:0;font-size:11px}
+ .ranking-row[data-price-view=true] .row-metric .price-extras{flex-basis:100%;margin-top:2px;gap:5px}
+}
 @media(max-height:500px) and (min-width:600px){
  .swipe-card-heading .alwa-recommendation{margin:0 0 0 10px}
  .swipe-price{gap:0 8px;align-content:start}
