@@ -1,4 +1,4 @@
-import {choiceNames,swipeIntent,swipeFeedback,nextDeck,swipeGroups} from './choices.js?v=20261022overview3';
+import {choiceNames,swipeIntent,swipeFeedback,nextDeck} from './choices.js?v=20261022overview3';
 const icon=(path,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg>`;
 const icons={like:icon('m5 12 4 4L19 6'),dislike:icon('m6 6 12 12M18 6 6 18'),unsure:icon('M12 20V4m-6 6 6-6 6 6'),arrow:icon('M4 12h16m-6-6 6 6-6 6'),undo:icon('M9 5 4 10l5 5M4 10h9a6 6 0 0 1 0 12')};
 const swipeArrows={dislike:icon('M20 12H4m6-6-6 6 6 6'),unsure:icons.unsure,like:icons.arrow};
@@ -7,40 +7,18 @@ export const unsureChoiceIcon='<svg viewBox="0 0 24 24" aria-hidden="true" strok
 export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onImage,zoomHint,scoreCategories,scoreBar,priceSummary,priceStatus,abilityScale,escapeHtml}){
  const root=()=>document.querySelector('#content');
  const ids=()=>skis.map(s=>s.id);
- let queue=[],index=0,history=[],busy=false,drag=null,animations=[],run=0,view='',abort,completing=false;
+ let queue=[],index=0,history=[],busy=false,drag=null,animations=[],run=0,view='',abort;
  const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
- function stop(){run++;animations.forEach(a=>a.cancel());animations=[];abort?.abort();drag=null;busy=false;completing=false;}
+ function stop(){run++;animations.forEach(a=>a.cancel());animations=[];abort?.abort();drag=null;busy=false;}
  function start(again=false){queue=nextDeck(ids(),getChoices(),again);if(!queue.length&&!again)queue=nextDeck(ids(),getChoices(),true);index=0;history=[];}
  function intro(){return `<section class="intro-screen" aria-labelledby="intro-title"><img class="intro-snow" src="assets/corduroy-snow.webp" alt="" fetchpriority="high"><div class="intro-top"><span>Till Frida</span><button data-view="models">Till översikten ${icons.arrow}</button></div><div class="intro-copy"><h1 id="intro-title">Hej Frida.<br>Jag har valt ut<br>åtta skidor åt dig.</h1><p>Se vilka du gillar. Jämför dem i lugn och ro.</p><button class="reveal-cta" data-begin>Se skidorna ${icons.arrow}</button></div><span class="intro-signature">Från Anton</span></section>`;}
  function reveal(){const visible=new Set(nextDeck(ids(),getChoices(),true));return `<section class="reveal-screen" aria-label="Skidorna presenteras"><div class="reveal-stage">${skis.filter(s=>visible.has(s.id)).map((s,i)=>`<div class="reveal-frame" data-frame="${i}"><img class="${s.media.images[0].orientation==='horizontal'?'wide-product':''}" src="${s.media.images[0].src}" alt="${escapeHtml(s.brand+' '+s.name)}"><span>${s.brand} ${s.name}</span></div>`).join('')}</div><p>Vilka gillar du?</p><button class="text-button" data-skip-reveal>Hoppa över animationen</button></section>`;}
  function card(s){return `<article class="swipe-card" tabindex="0" aria-label="${escapeHtml(s.brand+' '+s.name)}. Höger: Diggar. Vänster: Dissar. Upp: Osäker." aria-describedby="swipe-instructions"><div class="swipe-stamp" aria-hidden="true"></div><div class="swipe-card-heading"><div><span class="brand">${s.brand}</span><h2>${s.name}</h2></div><span class="swipe-season">${s.version?s.versions.items.find(v=>v.key===s.version).label:s.season}</span></div><div class="swipe-card-body"><button class="swipe-product zoom-target" data-zoom="${s.id}" aria-label="Förstora bild av ${escapeHtml(s.name)}"><img draggable="false" class="${s.media.images[0].orientation==='horizontal'?'wide-product':s.media.images[0].fit==='contain'?'narrow-product':['addikt','forza','mx74','phoenix'].includes(s.id)?'portrait-product':''}" src="${s.media.images[0].src}" alt="${escapeHtml(s.brand+' '+s.name)}">${zoomHint}</button><div class="swipe-stats"><p class="stats-caption">Min bedömning</p>${scoreCategories.map(c=>scoreBar(s,c)).join('')}</div></div><dl class="swipe-specs"><div><dt>Rekommenderad längd</dt><dd>${s.length} <span>cm</span></dd></div><div><dt>Radie vid ${s.length} cm</dt><dd>${String(s.radius).replace('.',',')} <span>m</span></dd></div><div><dt>Midjebredd</dt><dd>${s.width} <span>mm</span></dd></div></dl>${abilityScale(s)}<div class="swipe-price"><div><span>Pris</span><strong>${priceSummary(s)}</strong></div><p>${escapeHtml(priceStatus(s))}</p></div></article>`;}
  function deck(){const s=skis.find(x=>x.id===queue[index]);if(!s)return `<section class="deck-empty"><h1>Alla skidor är dolda.</h1><p>Du kan återställa dem i översikten.</p><button class="reveal-cta" data-view="models">Till översikten ${icons.arrow}</button></section>`;return `<section class="deck-screen" aria-labelledby="deck-title"><div class="deck-top"><h1 id="deck-title">Vad känns rätt?</h1><span>${index+1} <span class="muted">/ ${queue.length}</span></span><button class="text-button" data-view="models">Till översikten</button></div><p id="swipe-instructions" class="sr-only">Svep höger för Diggar, vänster för Dissar eller upp för Osäker. Du kan också använda knapparna eller piltangenterna.</p><div class="deck-stack"><div class="card-under back-two" aria-hidden="true"></div><div class="card-under back-one" aria-hidden="true"></div>${card(s)}</div><div class="swipe-actions" role="group" aria-label="Vad tycker du om ${escapeHtml(s.name)}?"><button data-swipe="dislike" aria-label="Dissar ${escapeHtml(s.name)}">${swipeArrows.dislike}<span>Dissar</span></button><button data-swipe="unsure" aria-label="Osäker på ${escapeHtml(s.name)}">${swipeArrows.unsure}<span>Osäker</span></button><button data-swipe="like" aria-label="Diggar ${escapeHtml(s.name)}">${swipeArrows.like}<span>Diggar</span></button><button class="undo-choice" data-undo ${history.length?'':'disabled'}>${icons.undo}<span>Ångra</span></button></div><div class="swipe-glow" aria-hidden="true"><span class="edge-glow edge-glow-dislike"></span><span class="edge-glow edge-glow-unsure"></span><span class="edge-glow edge-glow-like"></span></div></section>`;}
  function draw(){root().innerHTML=deck();bindCard();root().querySelector('.swipe-card')?.focus({preventScroll:true});}
- async function choose(choice,dx=0,dy=0){if(busy||!Object.hasOwn(choiceNames,choice)||!queue[index])return;busy=true;const currentRun=run,el=root().querySelector('.swipe-card');const id=queue[index],previous=getChoices().votes[id]||null;paintFeedback(el,dx,dy,choice);
+ async function choose(choice,dx=0,dy=0){if(busy||!Object.hasOwn(choiceNames,choice)||!queue[index])return;busy=true;const currentRun=run,el=root().querySelector('.swipe-card');const id=queue[index],previous=getChoices().votes[id]||null,deckRect=root().querySelector('.deck-stack').getBoundingClientRect(),origin={x:deckRect.x,y:deckRect.y,width:deckRect.width,height:deckRect.height};paintFeedback(el,dx,dy,choice);
   if(!reduced()){const x=choice==='like'?innerWidth*.9:choice==='dislike'?-innerWidth*.9:dx*.4,y=choice==='unsure'?-innerHeight*.8:dy+30;const anim=el.animate([{transform:`translate(${dx}px,${dy}px) rotate(${dx/20}deg)`,opacity:1},{transform:`translate(${x}px,${y}px) rotate(${x/28}deg)`,opacity:0}],{duration:300,easing:'cubic-bezier(.22,.75,.2,1)',fill:'forwards'});animations.push(anim);await anim.finished.catch(()=>{});}
-  if(currentRun!==run)return;history.push({id,previous});onVote(id,choice);index++;document.querySelector('#announcement').textContent=choiceNames[choice]+' · '+(queue.length-index)+' skidor kvar';if(index>=queue.length){await completeChoices(currentRun);return;}busy=false;draw();
- }
- function finishCompletion(positions){if(!completing)return;completing=false;animations.forEach(a=>a.cancel());animations=[];onFinish(positions);}
- async function completeChoices(currentRun){
-  completing=true;
-  if(reduced()){finishCompletion();return;}
-  const groups=swipeGroups(skis,getChoices()),byChoice=new Map(groups.map(group=>[group.choice,group.skis]));
-  const names=['like','unsure','dislike'];
-  root().innerHTML=`<section class="completion-screen" aria-labelledby="completion-title"><div class="completion-top"><h1 id="completion-title" tabindex="-1">Dina val</h1><button class="text-button" data-skip-completion>Visa mina val</button></div><div class="completion-lanes">${names.map(choice=>{const items=byChoice.get(choice)||[];return `<section class="completion-lane" data-choice="${choice}"><h2>${choice==='unsure'?unsureChoiceIcon:icons[choice]}${choiceNames[choice]}<span>${items.length}</span></h2><div class="completion-pile">${items.map((s,i)=>`<div class="completion-card" data-deal-id="${s.id}" style="--deal-index:${i};--deal-count:${items.length}"><span class="brand">${s.brand}</span><strong>${s.name}</strong><div class="completion-photo"><img class="${s.media.images[0].orientation==='horizontal'?'wide-product':''}" src="${s.media.images[0].src}" alt=""></div></div>`).join('')}</div></section>`;}).join('')}</div></section>`;
-  root().querySelector('#completion-title').focus({preventScroll:true});
-  document.querySelector('#announcement').textContent='Dina skidor ordnas efter dina val.';
-  const cards=[...root().querySelectorAll('[data-deal-id]')].map(el=>({el,rect:el.getBoundingClientRect()}));
-  const center={x:innerWidth/2,y:(window.visualViewport?.height||innerHeight)*.47};
-  for(const [i,{el,rect}] of cards.entries()){
-   const x=center.x-rect.x-rect.width/2+(i-(cards.length-1)/2)*2,y=center.y-rect.y-rect.height/2+i*2;
-   const a=el.animate([{opacity:0,transform:`translate(${x}px,${y}px) rotate(${(i-(cards.length-1)/2)*2}deg) scale(.92)`},{opacity:1,transform:`translate(${x}px,${y}px) rotate(${(i-(cards.length-1)/2)*2}deg) scale(.92)`,offset:.13},{opacity:1,transform:'none',offset:.88},{opacity:1,transform:'none'}],{duration:850,delay:i*45,fill:'both',easing:'cubic-bezier(.16,1,.3,1)'});
-   animations.push(a);
-  }
-  for(const el of root().querySelectorAll('.completion-lane h2'))animations.push(el.animate([{opacity:0},{opacity:1}],{duration:300,fill:'both'}));
-  await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
-  if(currentRun!==run||!completing)return;
-  const positions=cards.map(({el})=>{const r=el.getBoundingClientRect();return {id:el.dataset.dealId,x:r.x,y:r.y,width:r.width,height:r.height};});
-  finishCompletion(positions);
+  if(currentRun!==run)return;history.push({id,previous});onVote(id,choice);index++;document.querySelector('#announcement').textContent=choiceNames[choice]+' · '+(queue.length-index)+' skidor kvar';if(index>=queue.length){onFinish(reduced()?null:origin);return;}busy=false;draw();
  }
  function undo(){if(busy||!history.length)return;const last=history.pop();index--;onVote(last.id,last.previous);draw();document.querySelector('#announcement').textContent='Senaste valet ångrat';}
  function paintFeedback(el,dx,dy,forced){
@@ -67,8 +45,7 @@ export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onI
   await Promise.all(gather);if(currentRun===run)onNavigate('deck');
  }
  function mount(nextView){stop();view=nextView;abort=new AbortController();const signal=abort.signal;
-  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin'))onNavigate(reduced()?'deck':'reveal');if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.hasAttribute('data-skip-completion'))finishCompletion();if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
-  root().addEventListener('keydown',e=>{if(completing&&e.key==='Escape'){e.preventDefault();finishCompletion();}},{signal});
+  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin'))onNavigate(reduced()?'deck':'reveal');if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
   if(view==='deck')bindCard();if(view==='reveal')animateReveal();
  }
  return {start,stop,mount,render:nextView=>nextView==='intro'?intro():nextView==='reveal'?reveal():deck()};

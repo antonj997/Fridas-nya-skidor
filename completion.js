@@ -1,19 +1,22 @@
 export function createChoiceArrival(){
  let animations=[],events,revision=0;
  function cancel(){revision++;events?.abort();events=null;animations.forEach(a=>a.cancel());animations=[];document.body.removeAttribute('data-choice-arrival');}
- async function play(positions){
+ async function play(origin){
   cancel();
-  if(!positions?.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const current=revision,origins=new Map(positions.map(p=>[p.id,p]));
-  const cards=[...document.querySelectorAll('[data-model-card]')].map(el=>({el,to:el.getBoundingClientRect(),from:origins.get(el.dataset.modelCard)})).filter(card=>card.from);
+  if(!origin?.width||!origin?.height||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const current=revision;
+  const cards=[...document.querySelectorAll('[data-model-card]')].map(el=>({el,to:el.getBoundingClientRect()}));
   if(!cards.length)return;
   document.body.dataset.choiceArrival='true';events=new AbortController();
   for(const type of ['wheel','touchstart','resize'])window.addEventListener(type,cancel,{once:true,passive:true,signal:events.signal});
-  for(const {el,to,from} of cards){
-   const x=from.x+from.width/2-to.x-to.width/2,y=from.y+from.height/2-to.y-to.height/2;
-   animations.push(el.animate([{transform:`translate(${x}px,${y}px) scale(${from.width/to.width},${from.height/to.height})`,opacity:.9},{transform:'none',opacity:1}],{duration:600,easing:'cubic-bezier(.16,1,.3,1)',fill:'both'}));
+  window.addEventListener('keydown',event=>{if(event.key==='Escape')cancel();},{signal:events.signal});
+  for(const [index,{el,to}] of cards.entries()){
+   const offset=index-(cards.length-1)/2;
+   const x=origin.x+origin.width/2-to.x-to.width/2+offset*3,y=origin.y+origin.height/2-to.y-to.height/2+index*2;
+   const scale=Math.min(.92,origin.width/to.width,origin.height/to.height);
+   const zIndex=String(cards.length-index);
+   animations.push(el.animate([{transform:`translate(${x}px,${y}px) rotate(${offset*1.1}deg) scale(${scale})`,zIndex},{transform:'none',zIndex}],{duration:640,delay:index*45,easing:'cubic-bezier(.22,.75,.2,1)',fill:'both'}));
   }
-  for(const el of document.querySelectorAll('.choice-section-heading,.home-heading-wrap,.header'))animations.push(el.animate([{opacity:0},{opacity:1}],{duration:360,fill:'both',easing:'ease-out'}));
   await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
   if(current===revision)cancel();
  }
