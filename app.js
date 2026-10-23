@@ -117,7 +117,7 @@ $('#design-viewer').addEventListener('close',()=>{document.documentElement.class
 
 function updateChrome(){
  const flow=['intro','reveal','deck'].includes(state.view),overview=['models','ranking'].includes(state.view);
- document.body.dataset.view=state.view;document.documentElement.classList.toggle('deck-mode',state.view==='deck');syncDeckViewport();document.body.classList.toggle('experience-mode',flow);$('.header').hidden=flow;
+ document.body.dataset.view=state.view;document.documentElement.classList.toggle('intro-mode',state.view==='intro');document.documentElement.classList.toggle('deck-mode',state.view==='deck');syncDeckViewport();document.body.classList.toggle('experience-mode',flow);$('.header').hidden=flow;
  $('#home-heading').hidden=!overview;$('.home-heading-wrap').hidden=!overview;$('#home-heading').textContent=state.view==='ranking'?'Topplista':state.showHidden?'Dolda skidor':'Dina val';$('.home-actions').hidden=state.view!=='models';
  $('#hidden-models').hidden=!state.showHidden&&!preferences.hidden.length;$('#hidden-models').textContent=state.showHidden?'Till dina val':`Dolda (${preferences.hidden.length})`;
  $('#controls').hidden=state.view!=='ranking';$('#choice-filters').hidden=true;

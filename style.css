@@ -966,6 +966,9 @@ html[data-input-mode=pointer] :focus{outline:none}
 }
 
 /* A personal invitation, read one thought at a time. */
+html.intro-mode,html.intro-mode body{height:100%;overflow:hidden;overscroll-behavior:none}
+html.intro-mode body{position:fixed;inset:0;width:100%;height:var(--deck-height,100dvh)}
+.intro-mode .shell,.intro-mode #content,.intro-mode .intro-screen{height:var(--deck-height,100dvh);min-height:0;overflow:hidden}
 .intro-screen{min-height:100svh;padding:96px max(8vw,32px);background:var(--paper)}
 .intro-screen::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,#f8f8f4f5 0%,#f8f8f4e8 30%,#f8f8f480 56%,#f8f8f400 84%)}
 .intro-snow{z-index:-2;object-position:center;opacity:1}
@@ -1005,6 +1008,12 @@ html[data-input-mode=pointer] :focus{outline:none}
  .intro-copy h1{font-size:51px}
  .intro-copy>.intro-lead{font-size:26px}
  .intro-copy>.intro-directions{font-size:14px}
+}
+@media(max-height:480px){
+ .intro-screen{padding-top:24px;padding-bottom:24px}
+ .intro-copy h1{font-size:40px;margin-bottom:20px}
+ .intro-copy>.intro-lead{font-size:24px;margin-bottom:20px}
+ .intro-copy>.intro-directions{margin-bottom:24px}
 }
 @media(prefers-reduced-motion:reduce){
  .intro-beat{animation:none!important;opacity:1;filter:none;transform:none;visibility:visible}
