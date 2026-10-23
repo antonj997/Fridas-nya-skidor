@@ -8,13 +8,13 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 - Efter sista svepet öppnas Dina val direkt och korten delas ut från kortleken till sina kategorier med bibehållna proportioner. Escape eller scroll avbryter; minskad rörelse stöds.
 - Dina val visar bara svepta skidor i gröna Diggar-, gula Osäker- och röda Dissar-avsnitt. Dölj och återställ modeller med svepen bevarade. Val sparas lokalt.
 
-- Åtta perspektiv, inklusive sparade svep: mina val, testomdömen, svårighet, utvecklingspotential, bredd, radie och pris till Sverige.
+- Sex topplisteval: Antons topplista, testomdömen, svårighet, bredd, radie och pris till Sverige.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
 - Förstoringsbar bildvisare med nypzoom, panorering, bildbyte och tangentbordsstöd. Jämförelsens väljare har ingen zoom; tabellens bilder öppnar båda skidorna sida vid sida.
-- Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter och fast namnrad med Byt skida.
+- Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter och fast namnrad med Byt skida. Skillnadsreglaget ligger ovanför tabellen och årsmodellen väljs med ett kompakt reglage.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
-- Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 23 oktober 2026; Fridas 20 % rabatt beräknas på skidpaketet före 199 kr skidfrakt. Äldre GT80 skiljs från senaste versionen.
+- Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 23 oktober 2026; Fridas 20 % rabatt beräknas på skidpaketet före 199 kr skidfrakt. Äldre GT80 skiljs från senaste versionen. Bara det billigaste jämförbara erbjudandet fetmarkeras.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.
 - Tangentbordsstöd, tydliga fokustillstånd och minskad rörelse.
 

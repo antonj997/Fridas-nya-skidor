@@ -19,3 +19,9 @@ export function skiStarMatch(ski){
  if(skiStarTotal(offer)===null||offer.length!==ski.length)return null;
  return {offer,sameVersion:!offer.version||offer.version===ski.version};
 }
+export function lowestPriceSource(ski){
+ const current=ski.offer?.inStock&&Number.isFinite(ski.totalSek)?ski.totalSek:null;
+ const match=skiStarMatch(ski),alternative=match?.sameVersion?skiStarTotal(match.offer):null;
+ if(current===null)return alternative===null?null:'skistar';
+ return alternative!==null&&alternative<current?'skistar':'current';
+}

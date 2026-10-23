@@ -44,7 +44,7 @@ gtx:{tag:'Kraftfull carving',good:'Kraftfullt grepp och dämpning för aktiv car
 };
 for(const ski of skis){Object.assign(ski,shortNotes[ski.id]);ski.ability=['addikt','mx74','phoenix','gtx'].includes(ski.id)?'advanced':'intermediate-advanced';}
 export const perspectives={
-anton:{label:'Rekommendationer',title:'Rekommendationer',description:'GT 80 först, Addikt för mer livlig carving.',kind:'Subjektiv rekommendation',key:'anton'},
+anton:{label:'Antons topplista',title:'Antons topplista',description:'GT 80 först, Addikt för mer livlig carving.',kind:'Subjektiv rekommendation',key:'anton'},
 reviews:{label:'Bäst recensioner',title:'Testomdömen',description:'Min tolkning av testerna, inte ett snittbetyg.',kind:'Redaktionell testsammanvägning',key:'review'},
 difficulty:{label:'Svårighetsgrad',title:'Svårighetsgrad',description:'Mest följsam först. Placeringarna är ungefärliga.',kind:'Subjektiv · för dig',key:'difficulty'},
 potential:{label:'Utvecklingspotential',title:'Utvecklingspotential',description:'Utrymme att utvecklas. Styvare är inte automatiskt bättre.',kind:'Subjektiv · delade placeringar',key:'potential'},
