@@ -1,14 +1,15 @@
-import {choiceNames,swipeIntent,swipeFeedback,nextDeck} from './choices.js?v=20261022overview3';
+import {choiceNames,swipeIntent,swipeFeedback,nextDeck,swipeGroups} from './choices.js?v=20261022overview3';
 const icon=(path,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg>`;
 const icons={like:icon('m5 12 4 4L19 6'),dislike:icon('m6 6 12 12M18 6 6 18'),unsure:icon('M12 20V4m-6 6 6-6 6 6'),arrow:icon('M4 12h16m-6-6 6 6-6 6'),undo:icon('M9 5 4 10l5 5M4 10h9a6 6 0 0 1 0 12')};
 const swipeArrows={dislike:icon('M20 12H4m6-6-6 6 6 6'),unsure:icons.unsure,like:icons.arrow};
 export const choiceIcons=icons;
+export const unsureChoiceIcon='<svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18h.01"/></svg>';
 export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onImage,zoomHint,scoreCategories,scoreBar,priceSummary,priceStatus,abilityScale,escapeHtml}){
  const root=()=>document.querySelector('#content');
  const ids=()=>skis.map(s=>s.id);
- let queue=[],index=0,history=[],busy=false,drag=null,animations=[],run=0,view='',abort;
+ let queue=[],index=0,history=[],busy=false,drag=null,animations=[],run=0,view='',abort,completing=false;
  const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
- function stop(){run++;animations.forEach(a=>a.cancel());animations=[];abort?.abort();drag=null;busy=false;}
+ function stop(){run++;animations.forEach(a=>a.cancel());animations=[];abort?.abort();drag=null;busy=false;completing=false;}
  function start(again=false){queue=nextDeck(ids(),getChoices(),again);if(!queue.length&&!again)queue=nextDeck(ids(),getChoices(),true);index=0;history=[];}
  function intro(){return `<section class="intro-screen" aria-labelledby="intro-title"><img class="intro-snow" src="assets/corduroy-snow.webp" alt="" fetchpriority="high"><div class="intro-top"><span>Till Frida</span><button data-view="models">Till översikten ${icons.arrow}</button></div><div class="intro-copy"><h1 id="intro-title">Hej Frida.<br>Jag har valt ut<br>åtta skidor åt dig.</h1><p>Se vilka du gillar. Jämför dem i lugn och ro.</p><button class="reveal-cta" data-begin>Se skidorna ${icons.arrow}</button></div><span class="intro-signature">Från Anton</span></section>`;}
  function reveal(){const visible=new Set(nextDeck(ids(),getChoices(),true));return `<section class="reveal-screen" aria-label="Skidorna presenteras"><div class="reveal-stage">${skis.filter(s=>visible.has(s.id)).map((s,i)=>`<div class="reveal-frame" data-frame="${i}"><img class="${s.media.images[0].orientation==='horizontal'?'wide-product':''}" src="${s.media.images[0].src}" alt="${escapeHtml(s.brand+' '+s.name)}"><span>${s.brand} ${s.name}</span></div>`).join('')}</div><p>Vilka gillar du?</p><button class="text-button" data-skip-reveal>Hoppa över animationen</button></section>`;}
@@ -17,7 +18,29 @@ export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onI
  function draw(){root().innerHTML=deck();bindCard();root().querySelector('.swipe-card')?.focus({preventScroll:true});}
  async function choose(choice,dx=0,dy=0){if(busy||!Object.hasOwn(choiceNames,choice)||!queue[index])return;busy=true;const currentRun=run,el=root().querySelector('.swipe-card');const id=queue[index],previous=getChoices().votes[id]||null;paintFeedback(el,dx,dy,choice);
   if(!reduced()){const x=choice==='like'?innerWidth*.9:choice==='dislike'?-innerWidth*.9:dx*.4,y=choice==='unsure'?-innerHeight*.8:dy+30;const anim=el.animate([{transform:`translate(${dx}px,${dy}px) rotate(${dx/20}deg)`,opacity:1},{transform:`translate(${x}px,${y}px) rotate(${x/28}deg)`,opacity:0}],{duration:300,easing:'cubic-bezier(.22,.75,.2,1)',fill:'forwards'});animations.push(anim);await anim.finished.catch(()=>{});}
-  if(currentRun!==run)return;history.push({id,previous});onVote(id,choice);index++;busy=false;document.querySelector('#announcement').textContent=choiceNames[choice]+' · '+(queue.length-index)+' skidor kvar';if(index>=queue.length){onFinish();return;}draw();
+  if(currentRun!==run)return;history.push({id,previous});onVote(id,choice);index++;document.querySelector('#announcement').textContent=choiceNames[choice]+' · '+(queue.length-index)+' skidor kvar';if(index>=queue.length){await completeChoices(currentRun);return;}busy=false;draw();
+ }
+ function finishCompletion(positions){if(!completing)return;completing=false;animations.forEach(a=>a.cancel());animations=[];onFinish(positions);}
+ async function completeChoices(currentRun){
+  completing=true;
+  if(reduced()){finishCompletion();return;}
+  const groups=swipeGroups(skis,getChoices()),byChoice=new Map(groups.map(group=>[group.choice,group.skis]));
+  const names=['like','unsure','dislike'];
+  root().innerHTML=`<section class="completion-screen" aria-labelledby="completion-title"><div class="completion-top"><h1 id="completion-title" tabindex="-1">Dina val</h1><button class="text-button" data-skip-completion>Visa mina val</button></div><div class="completion-lanes">${names.map(choice=>{const items=byChoice.get(choice)||[];return `<section class="completion-lane" data-choice="${choice}"><h2>${choice==='unsure'?unsureChoiceIcon:icons[choice]}${choiceNames[choice]}<span>${items.length}</span></h2><div class="completion-pile">${items.map((s,i)=>`<div class="completion-card" data-deal-id="${s.id}" style="--deal-index:${i};--deal-count:${items.length}"><span class="brand">${s.brand}</span><strong>${s.name}</strong><div class="completion-photo"><img class="${s.media.images[0].orientation==='horizontal'?'wide-product':''}" src="${s.media.images[0].src}" alt=""></div></div>`).join('')}</div></section>`;}).join('')}</div></section>`;
+  root().querySelector('#completion-title').focus({preventScroll:true});
+  document.querySelector('#announcement').textContent='Dina skidor ordnas efter dina val.';
+  const cards=[...root().querySelectorAll('[data-deal-id]')].map(el=>({el,rect:el.getBoundingClientRect()}));
+  const center={x:innerWidth/2,y:(window.visualViewport?.height||innerHeight)*.47};
+  for(const [i,{el,rect}] of cards.entries()){
+   const x=center.x-rect.x-rect.width/2+(i-(cards.length-1)/2)*2,y=center.y-rect.y-rect.height/2+i*2;
+   const a=el.animate([{opacity:0,transform:`translate(${x}px,${y}px) rotate(${(i-(cards.length-1)/2)*2}deg) scale(.92)`},{opacity:1,transform:`translate(${x}px,${y}px) rotate(${(i-(cards.length-1)/2)*2}deg) scale(.92)`,offset:.13},{opacity:1,transform:'none',offset:.88},{opacity:1,transform:'none'}],{duration:850,delay:i*45,fill:'both',easing:'cubic-bezier(.16,1,.3,1)'});
+   animations.push(a);
+  }
+  for(const el of root().querySelectorAll('.completion-lane h2'))animations.push(el.animate([{opacity:0},{opacity:1}],{duration:300,fill:'both'}));
+  await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
+  if(currentRun!==run||!completing)return;
+  const positions=cards.map(({el})=>{const r=el.getBoundingClientRect();return {id:el.dataset.dealId,x:r.x,y:r.y,width:r.width,height:r.height};});
+  finishCompletion(positions);
  }
  function undo(){if(busy||!history.length)return;const last=history.pop();index--;onVote(last.id,last.previous);draw();document.querySelector('#announcement').textContent='Senaste valet ångrat';}
  function paintFeedback(el,dx,dy,forced){
@@ -44,7 +67,8 @@ export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onI
   await Promise.all(gather);if(currentRun===run)onNavigate('deck');
  }
  function mount(nextView){stop();view=nextView;abort=new AbortController();const signal=abort.signal;
-  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin'))onNavigate(reduced()?'deck':'reveal');if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
+  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin'))onNavigate(reduced()?'deck':'reveal');if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.hasAttribute('data-skip-completion'))finishCompletion();if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
+  root().addEventListener('keydown',e=>{if(completing&&e.key==='Escape'){e.preventDefault();finishCompletion();}},{signal});
   if(view==='deck')bindCard();if(view==='reveal')animateReveal();
  }
  return {start,stop,mount,render:nextView=>nextView==='intro'?intro():nextView==='reveal'?reveal():deck()};
