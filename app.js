@@ -5,7 +5,7 @@ import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComp
 import {media} from './media.js?v=20261022overview3';
 import {offers,priceCheck} from './offers.js?v=20261022overview3';
 import {modelVersions} from './versions.js?v=20261022overview3';
-const savedChoiceIcons={...choiceIcons,unsure:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18h.01"/></svg>'};
+const savedChoiceIcons={...choiceIcons,unsure:'<svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18h.01"/></svg>'};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>new Intl.NumberFormat('sv-SE',{maximumFractionDigits:1}).format(n);
