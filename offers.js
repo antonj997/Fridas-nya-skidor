@@ -9,3 +9,49 @@ peregrine:{seller:'XSPO',price:749.95,shipping:29.95,currency:'EUR',verified:fal
 phoenix:{seller:'Sport Conrad',price:749,shipping:19.95,currency:'EUR',verified:false,inStock:true,length:160,season:'2026/27',binding:'TPX12 Demo W',standard:950,standardCurrency:'EUR',standardType:'Rekommenderat pris enligt återförsäljare',standardUrl:'https://www.sport-schuster.de/blizzard-phoenix-r14-pro-tpx12-w-demo-26-27-damen-alpinski.html',url:'https://www.sport-conrad.com/en/products/blizzard-phoenix-r14-pro-tpx-12-w-demo-26-27-skis-with-bindings-black-pink-women/70409861-160',shippingUrl:'https://www.sport-conrad.com/en/Shipping-Costs/',stockNote:'160 cm · begränsat lager, exakt variant kontrollerad',note:'Nytt set, SKU 70409861-160. Svensk skidfrakt 19,95 € bekräftad; eventuell svensk momsjustering i kassan återstår. Demo är bindningens modellnamn, inte begagnat skick. Lägre EXIsport 439,99 € kunde inte verifieras med leverans till Sverige. Radiejämförelsen använder denna versions 14 m vid 160 cm.'},
 gtx:{seller:'Sport Conrad',price:879,shipping:19.95,currency:'EUR',verified:false,inStock:true,length:161,season:'2026/27',binding:'VX13 GW Powerrail',standard:1100,standardCurrency:'EUR',standardType:'Tillverkarens rekommenderade pris',standardUrl:'https://www.fischersports.com/sk_sk/the-curv-noize-gtx-vx13-pr/P08126',url:'https://www.sport-conrad.com/en/products/fischer-the-curv-noize-gtx-vx-13-gw-pr-26-27-skis-with-bindings/70414019-161',shippingUrl:'https://www.sport-conrad.com/en/Shipping-Costs/',stockNote:'161 cm · begränsat lager',note:'Noize-generationen och 161 cm verifierade. Annonspris och svensk skidfrakt bekräftade; svensk slutmoms återstår. Billigare Snow-How kan inte bekräftas leverera till Sverige.'}
 };
+// BEGIN CURRENT SPORT ALTERNATIVES
+Object.assign(offers,{
+ "q9": {
+  "seller": "Sport Conrad",
+  "price": 929,
+  "shipping": 19.95,
+  "currency": "EUR",
+  "verified": false,
+  "inStock": true,
+  "length": 160,
+  "season": "2026/27",
+  "binding": "I12 GW",
+  "standard": 12000,
+  "standardCurrency": "SEK",
+  "standardType": "Tillverkarens ordinarie pris",
+  "standardUrl": "https://www.atomic.com/en-se/products/redster-q9-revoshock-s-i-12-gw-aa7469-202600",
+  "url": "https://www.sport-conrad.com/en/products/atomic-redster-q9-revoshock-s-i-12-gw-26-27-skis-with-bindings-black-dark-slate/70405131-160",
+  "stockUrl": "https://www.sport-conrad.com/en/products/atomic-redster-q9-revoshock-s-i-12-gw-26-27-skis-with-bindings-black-dark-slate/70405131-160",
+  "shippingUrl": "https://www.sport-conrad.com/en/shipping-delivery/",
+  "checkedAt": "24 oktober 2026",
+  "stockNote": "160 cm · begränsat lager",
+  "note": "Exakt 160 cm, SKU 70405131-160 och GTIN 0887445538219, har LimitedAvailability. 929 € plus publicerad svensk skidfrakt 19,95 €. Omräknat pris är ungefärligt; svensk slutmoms är inte kassaverifierad. Lägre Ski-andmore-annons utesluts eftersom leverans till Sverige inte är styrkt."
+ },
+ "rally": {
+  "seller": "Länna Sport",
+  "price": 8490,
+  "shipping": 119,
+  "currency": "SEK",
+  "verified": false,
+  "inStock": true,
+  "length": 163,
+  "season": "2026/27",
+  "binding": "PRD12 GW",
+  "standard": 10495,
+  "standardCurrency": "SEK",
+  "standardType": "Leverantörens rekommenderade pris enligt Länna",
+  "standardUrl": "https://www.lannasport.se/sv/p300907/head-supershape-e-rally-sw-inkl-prd-12-gw",
+  "url": "https://www.lannasport.se/sv/p300907/head-supershape-e-rally-sw-inkl-prd-12-gw",
+  "stockUrl": "https://www.lannasport.se/api/products/variant?name=1000282227-001&quantityForPrice=1",
+  "shippingUrl": "https://www.lannasport.se/sv/kopvillkor",
+  "checkedAt": "24 oktober 2026",
+  "stockNote": "163 cm · i lager, exakt variant kontrollerad",
+  "note": "8 490 kr med 163 cm vald, artikel 1000282227-001, leverantör 31334603. Publicerade villkor anger 119 kr för skidor över 1,2 m, vilket ger beräknat 8 609 kr inklusive frakt. Bindningsmontering ingår; frivillig vallning är inte inräknad. Ingen kassa användes. Protector13-paket hos andra butiker är ett annat bindningspaket."
+ }
+});
+// END CURRENT SPORT ALTERNATIVES

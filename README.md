@@ -1,6 +1,6 @@
 # Skidor till Frida
 
-En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages utan externa ramverk.
+En minimalistisk, responsiv guide till tio pistskidor, byggd för GitHub Pages utan externa ramverk.
 
 ## Funktioner
 
@@ -12,6 +12,7 @@ En minimalistisk, responsiv guide till åtta pistskidor, byggd för GitHub Pages
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
 - Förstoringsbar bildvisare med nypzoom, panorering, bildbyte och tangentbordsstöd. Jämförelsens väljare har ingen zoom; tabellens bilder öppnar båda skidorna sida vid sida.
 - Fem subjektiva egenskapsmätare, separat åkarnivå och jämförelse av två modeller, inklusive skillnadsfilter och fast namnrad med Byt skida. Skillnadsreglaget ligger ovanför tabellen och årsmodellen väljs med ett kompakt reglage.
+- Atomic Redster Q9 Revoshock S och Head Supershape e-Rally 2026/27 kompletterar de ursprungliga åtta. Q9 rekommenderas i 160 cm (12,6 m) och e-Rally i 163 cm (12,7 m). Bilder, paket, testkällor och priser kontrollerade 24 oktober 2026.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
 - Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 23 oktober 2026; Fridas 20 % rabatt beräknas på skidpaketet före 199 kr skidfrakt. Äldre GT80 skiljs från senaste versionen. Bara det billigaste jämförbara erbjudandet fetmarkeras.
@@ -28,4 +29,4 @@ Kör en statisk webbserver i projektmappen, exempelvis `python -m http.server 41
 
 ## Källor och bilder
 
-Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produktbilder kommer från Elan Sports, Fischer, Salomon, Rossignol/Look, Völkl, Kästle och Blizzard samt Skibahnhof, Sport Conrad, XSPO och Weareskiers. Fischer-gallerierna kompletteras med högupplösta testbilder från SkiEssentials. Varje galleribild länkar sin egen källa. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. GT80 visar 2026/27 som förval, med 2025/26 som alternativ. Båda finns i 159 cm; äldre erbjudandets total är verifierad, det nyare är preliminärt tills svensk slutmoms bekräftats. GT80-priserna kontrollerades 22 oktober 2026. Bakgrundsbilden av manchester är skapad med Imagegen; produktbilderna är källbilder. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.
+Alla test-, fakta-, pris- och bildkällor länkas på respektive modellsida. Produktbilder kommer från Elan Sports, Fischer, Salomon, Rossignol/Look, Völkl, Kästle, Blizzard, Atomic och Head samt Skibahnhof, Sport Conrad, XSPO, Weareskiers, Länna Sport och VOSIsportSHOP. Fischer-gallerierna kompletteras med högupplösta testbilder från SkiEssentials. Varje galleribild länkar sin egen källa. Bildversionerna är kontrollerade mot refererad modell eller erbjudande. Fotograferad längd kan avvika. Q9 visar AASS03784 med I12 GW, e-Rally 313346 med PRD12 GW. GT80 visar 2026/27 som förval, med 2025/26 som alternativ. Båda finns i 159 cm; äldre erbjudandets total är verifierad, det nyare är preliminärt tills svensk slutmoms bekräftats. GT80-priserna kontrollerades 22 oktober 2026. Bakgrundsbilden av manchester är skapad med Imagegen; produktbilderna är källbilder. DM Serif Display distribueras under SIL Open Font License; se `assets/OFL.txt`.

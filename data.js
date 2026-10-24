@@ -43,6 +43,127 @@ phoenix:{tag:'Precision på hård pist',good:'Precist kantgrepp och stort stöd 
 gtx:{tag:'Kraftfull carving',good:'Kraftfullt grepp och dämpning för aktiv carving.',bad:'Kräver mer aktiv belastning än de följsammaste alternativen.',reason:'För dig som prioriterar stöd och motstånd.'}
 };
 for(const ski of skis){Object.assign(ski,shortNotes[ski.id]);ski.ability=['addikt','mx74','phoenix','gtx'].includes(ski.id)?'advanced':'intermediate-advanced';}
+// BEGIN CURRENT SPORT ALTERNATIVES
+skis.push(...[
+ {
+  "id": "q9",
+  "brand": "Atomic",
+  "name": "Redster Q9 Revoshock S",
+  "length": 160,
+  "width": 75,
+  "radius": 12.6,
+  "radiusLength": 160,
+  "season": "2026/27",
+  "radiusSource": "https://www.atomic.com/en-se/products/redster-q9-revoshock-s-i-12-gw-aa7469-202600",
+  "difficulty": 6.5,
+  "level": "Hög",
+  "anton": 4,
+  "potential": 2,
+  "review": 2,
+  "shortlist": false,
+  "init": "Lätt, med tidigt kantbett",
+  "flex": "Kräver aktiv belastning",
+  "ability": "advanced",
+  "tag": "Dämpad carving",
+  "build": "Power Woodcore i ask/popplar, TI Powered, Carbon Boost, Revoshock S, Ultrawall och Multi Radius Sidecut. Full camber och I12 GW-bindning.",
+  "good": "Lugn på kant och stabil i uppkörd pist. Kort radie ger tydlig svängrespons.",
+  "bad": "Tidigt kantbett kan kännas bestämt. Kraftig konstruktion kräver aktiv teknik.",
+  "reason": "Ett dämpat alternativ till GTX för varierad piståkning.",
+  "reviewText": "Freeride lyfter lugn gång och tillgänglig carving. SkiEssentials betonar en kraftfull skida för avancerad teknik. Tester i längre versioner avgör inte hur lätt 160 cm känns för dig.",
+  "note": "2026/27, AASS03784 med I12 GW. I 160 cm: 123–75–107,5 mm och 12,6 m radie. Äldre Q9 har andra längdsteg och 13 m i 160 cm. Testerna gäller längre skidor. Kortare radie än GTX betyder inte automatiskt mjukare flex.",
+  "scores": {
+   "grip": 5,
+   "stability": 5,
+   "agility": 4,
+   "forgiveness": 3,
+   "versatility": 4
+  },
+  "sources": [
+   {
+    "type": "test",
+    "label": "Freeride · test 2027",
+    "url": "https://www.freeride.se/skidtest-atomic-redster-q9-2027/"
+   },
+   {
+    "type": "test",
+    "label": "SkiEssentials · test 2027",
+    "url": "https://www.skiessentials.com/2027-ski-test/skis/2027-atomic-redster-q9"
+   },
+   {
+    "type": "fakta",
+    "label": "Atomic · modell och längdtabell",
+    "url": "https://www.atomic.com/en-se/products/redster-q9-revoshock-s-i-12-gw-aa7469-202600"
+   },
+   {
+    "type": "fakta",
+    "label": "Blister · konstruktion 2027",
+    "url": "https://blisterreview.com/gear-reviews/2026-2027-atomic-redster-q9-revoshock-s"
+   }
+  ]
+ },
+ {
+  "id": "rally",
+  "brand": "Head",
+  "name": "Supershape e-Rally",
+  "length": 163,
+  "width": 78,
+  "radius": 12.7,
+  "radiusLength": 163,
+  "season": "2026/27",
+  "radiusSource": "https://www.lannasport.se/sv/p300907/head-supershape-e-rally-sw-inkl-prd-12-gw",
+  "difficulty": 7.5,
+  "level": "Hög",
+  "anton": 4,
+  "potential": 2,
+  "review": 2,
+  "shortlist": false,
+  "init": "Lätt–medel",
+  "flex": "Styv och stödjande",
+  "ability": "advanced",
+  "tag": "Grepp och lugn",
+  "build": "Worldcup Sandwich Cap med trä, Titanal och Graphene. Crossforce Carbon, EMC, Speed Rocker och Better Balance-platta. Paketet har PRD12 GW.",
+  "good": "Starkt kantgrepp och dämpad gång. Trivs i sammanhängande carvingsvängar på hård och uppkörd pist.",
+  "bad": "Styv flex kan kräva mer av en lätt åkare. Mer arbete i sladdade svängar.",
+  "reason": "Ett nära alternativ till GTX med lite bredare plattform.",
+  "reviewText": "SKI Magazine lyfter stabilitet och grepp men beskriver trögare sladdade svängar. SkiEssentials testare är oense om hur förlåtande skidan känns. SkiTalk reserverar sig särskilt för lättare åkare.",
+  "note": "2026/27, skida 313346 med PRD12 GW. Vid rekommenderade 163 cm: 128–78–112 mm och 12,7 m radie. Tester gäller främst 170/177 cm och delvis andra bindningspaket. Det är ett jämförbart sportalternativ, ingen självklar lättare version av GTX.",
+  "scores": {
+   "grip": 5,
+   "stability": 5,
+   "agility": 4,
+   "forgiveness": 3,
+   "versatility": 4
+  },
+  "sources": [
+   {
+    "type": "test",
+    "label": "SKI Magazine · test 2027",
+    "url": "https://www.skimag.com/gear/ski-reviews/carving-skis/best-carving-skis/?scope=anon"
+   },
+   {
+    "type": "test",
+    "label": "SkiEssentials · test 2027",
+    "url": "https://www.skiessentials.com/2027-ski-test/skis/2027-head-supershape-e-rally"
+   },
+   {
+    "type": "test",
+    "label": "SkiTalk · uppdaterat test 2027",
+    "url": "https://www.skitalk.com/threads/2027-head-supershape-e-rally.40413/"
+   },
+   {
+    "type": "fakta",
+    "label": "Head · katalog 2026/27",
+    "url": "https://www.eski.sk/image/document/head-hardgoods-26-27-en.pdf"
+   },
+   {
+    "type": "fakta",
+    "label": "Länna Sport · 163 cm och PRD12",
+    "url": "https://www.lannasport.se/sv/p300907/head-supershape-e-rally-sw-inkl-prd-12-gw"
+   }
+  ]
+ }
+]);
+// END CURRENT SPORT ALTERNATIVES
 export const perspectives={
 anton:{label:'Antons topplista',title:'Antons topplista',description:'GT 80 först, Addikt för mer livlig carving.',kind:'Subjektiv rekommendation',key:'anton'},
 reviews:{label:'Bäst recensioner',title:'Testomdömen',description:'Min tolkning av testerna, inte ett snittbetyg.',kind:'Redaktionell testsammanvägning',key:'review'},

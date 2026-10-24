@@ -25,3 +25,22 @@ export function lowestPriceSource(ski){
  if(current===null)return alternative===null?null:'skistar';
  return alternative!==null&&alternative<current?'skistar':'current';
 }
+// BEGIN CURRENT SPORT ALTERNATIVES
+Object.assign(skiStarOffers,{
+ "q9": {
+  "status": "wrong-length",
+  "length": 160,
+  "url": "https://www.skistarshop.com/se/utrustning/skidor/pistskidor/redster-q9-rvsk-s-i-12-gw-one-colour-830869",
+  "stockNote": "160 cm saknas",
+  "checkedAt": "24 oktober 2026",
+  "versionNote": "Aktuell Q9 hittades bara i 167, 174 och 181 cm. Prispressat-markeringen begränsar dessutom rabatter. Ingen 20-procentstotal visas för en längd som inte finns att köpa."
+ },
+ "rally": {
+  "status": "not-found",
+  "url": "https://www.skistarshop.com/se/search?q=supershape%20e-rally",
+  "stockNote": "Exakt modell hittades inte",
+  "checkedAt": "24 oktober 2026",
+  "versionNote": "Ingen verifierad e-Rally 2026/27 i 163 cm hittades. Ingen rabatt eller frakt räknas fram för en saknad produkt."
+ }
+});
+// END CURRENT SPORT ALTERNATIVES
