@@ -12,6 +12,7 @@ En minimalistisk, responsiv guide till tio pistskidor, byggd för GitHub Pages u
 - Sex topplisteval: Antons topplista, testomdömen, svårighet, bredd, radie och Pris.
 - Antons topplista har personliga motiveringar. GT 80, Addikt och GTX får guld-, silver- och bronston. Elan, Kästle och Blizzard delar sista platsen med Alternativ; de tekniska poängen hålls separat.
 - Topplistan har jämnstora rader och samma första bild/beskärning som Dina val. Belag visas som bild två där det finns; förstoringsläget stöder svep vid 1× och panorering när bilden är inzoomad.
+- Lätta WebP-kopior av exakt samma omslag används på korten, med originalbeskärning och högupplösta original kvar i galleri/zoom. Bilder förladdas och avkodas i förväg. Svepets draguppdateringar samlas per skärmbild; samma riktningsikon återanvänds.
 - Samma beskurna omslagsbild i swipekort, startmontage, Dina val, topplista, jämförelsens väljare, tabell och bildpar.
 - Egen adresserbar modellsida för varje skida, med verifierade modellbilder och fler vinklar där de finns.
 - Förstoringsbar bildvisare med nypzoom, panorering, bildbyte och tangentbordsstöd. Jämförelsens väljare har ingen zoom; tabellens bilder öppnar båda skidorna sida vid sida.

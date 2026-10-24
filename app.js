@@ -1,12 +1,12 @@
 import {createChoiceArrival} from './completion.js?v=20261023direct1';
 import {createImageViewer} from './viewer.js?v=20261024gallery1';
 import {cleanChoices,voteFor,hideSki,selectVisible,choiceNames,swipeGroups} from './choices.js?v=20261022overview3';
-import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experience.js?v=20261024covers1';
+import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experience.js?v=20261024smooth1';
 import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261024return1';
-import {media} from './media.js?v=20261024gallery1';
+import {media} from './media.js?v=20261024smooth1';
 import {offers,priceCheck} from './offers.js?v=20261024skis10';
 import {skiStarCheck,skiStarOffers,skiStarTotal,skiStarListedTotal,skiStarDiscountApplies,skiStarMatch,lowestPriceSource} from './skistar.js?v=20261024skionly1';
-import {modelVersions} from './versions.js?v=20261024gallery1';
+import {modelVersions} from './versions.js?v=20261024smooth1';
 const savedChoiceIcons={...choiceIcons,unsure:unsureChoiceIcon};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 document.documentElement.dataset.inputMode='pointer';
@@ -81,7 +81,15 @@ function imageSvg(image,bounds,attributes){
  const horizontal=image.orientation==='horizontal', [left,top,width,height]=bounds||[0,0,image.width,image.height];
  return `<svg ${attributes} viewBox="0 0 ${horizontal?height:width} ${horizontal?width:height}" aria-hidden="true" focusable="false"><g${horizontal?` transform="translate(0 ${width}) rotate(-90)"`:''}><svg width="${width}" height="${height}" viewBox="${left} ${top} ${width} ${height}" overflow="hidden"><image href="${escapeHtml(image.src)}" width="${image.width}" height="${image.height}" preserveAspectRatio="none"/></svg></g></svg>`;
 }
-function cardImage(s){const cover=s.media.images[0];return imageSvg(cover,cover.cardBounds||cover.bounds,'class="model-card-product"');}
+function cardImage(s){const cover=s.media.images[0];return imageSvg({...cover,src:cover.cardSrc||cover.src},cover.cardBounds||cover.bounds,'class="model-card-product"');}
+const decodedCards=new Map();
+function preloadCard(s,priority='low'){
+ const cover=s.media.images[0],src=cover.cardSrc||cover.src;
+ if(decodedCards.has(src))return decodedCards.get(src).ready;
+ const image=new Image();image.decoding='async';image.fetchPriority=priority;image.src=src;
+ const ready=image.decode().catch(()=>{decodedCards.delete(src);});
+ decodedCards.set(src,{image,ready});return ready;
+}
 function galleryPhoto(s,image,thumb=false){return image.viewBounds?imageSvg(image,image.viewBounds,`class="gallery-crop"${thumb?'':' id="gallery-image"'}`):`<img ${thumb?'':'id="gallery-image" '}src="${escapeHtml(image.src)}" alt="${thumb?'':escapeHtml(s.name+' – '+image.label)}" width="${thumb?100:500}" height="${thumb?65:350}"${thumb?' loading="lazy"':''}>`;}
 function modelGrid(items){return `<div class="model-grid">${items.map(s=>`<article class="model-card" data-model-card="${s.id}"><div class="model-card-heading"><button class="model-name-button" data-ski="${s.id}"><span class="brand">${s.brand}</span><h3>${s.name}</h3>${alwaRecommendation(s)}</button>${preferences.votes[s.id]?`<span class="choice-label ${preferences.votes[s.id]}">${savedChoiceIcons[preferences.votes[s.id]]}${choiceNames[preferences.votes[s.id]]}</span>`:''}</div><button class="model-card-visual zoom-target" data-zoom="${s.id}" aria-label="Förstora bild av ${escapeHtml(s.name)}">${cardImage(s)}${zoomHint}<span class="image-count">${s.version?s.versions.items.find(v=>v.key===s.version).label:s.season.split('–').pop()}</span></button><div class="model-card-facts"><p><strong>${s.length} cm</strong><span>Längd</span></p><p><strong>${fmt(s.radius)} m</strong><span>Radie</span></p></div><div class="model-card-price">${priceElement(s)}<span>${escapeHtml(priceStatus(s))}</span>${priceExtras(s)}</div><div class="model-card-bottom"><button class="text-button" data-ski="${s.id}">Om skidan</button>${selectionButton(s)}${hideButton(s)}</div></article>`).join('')}</div>`;}
 function models(items){
@@ -138,7 +146,7 @@ function updateChrome(){
  document.title=state.view==='detail'?`${skis.find(s=>s.id===state.detail)?.name} — Till Frida`:'Till Frida · Skidorna';
 }
 function render(){choiceArrival.cancel();updateChrome();$('#content').classList.toggle('models-view',state.view==='models');if(['intro','reveal','deck'].includes(state.view)){$('#content').innerHTML=experience.render(state.view);experience.mount(state.view);document.documentElement.classList.remove('app-loading');return;}experience.stop();const items=rankSkis(selectVisible(skis,preferences,{hidden:state.view==='models'&&state.showHidden}),state.perspective,state.reverse);$('#content').innerHTML=state.view==='models'?models(items):state.view==='compare'?compare():state.view==='detail'?detail(skis.find(s=>s.id===state.detail)):ranking(items);mountCompareContext();document.documentElement.classList.remove('app-loading');}
-const experience=createExperience({skis:rankSkis(skis,'anton'),getChoices:()=>preferences,onVote:recordVote,onFinish:origin=>{pendingDeal=origin||null;state.perspective='anton';state.choiceFilter='all';state.showHidden=false;navigate('models');},onNavigate:navigate,onImage:openSkiImage,onWelcomeSeen:markWelcomeSeen,zoomHint,cardImage,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml});
+const experience=createExperience({skis:rankSkis(skis,'anton'),getChoices:()=>preferences,onVote:recordVote,onFinish:origin=>{pendingDeal=origin||null;state.perspective='anton';state.choiceFilter='all';state.showHidden=false;navigate('models');},onNavigate:navigate,onImage:openSkiImage,onWelcomeSeen:markWelcomeSeen,zoomHint,cardImage,preloadCard,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml});
 
 let previousView='models';
 function navigate(view,id){if(view==='detail'){if(['ranking','models','deck','compare'].includes(state.view))previousView=state.view;state.gallery=0;}const hash=view==='detail'?'#skida/'+id:{intro:'#start',reveal:'#upptack',deck:'#val',ranking:'#topplista',models:'#skidor',compare:'#jamfor'}[view];if(location.hash===hash){readRoute();return;}location.hash=hash;}

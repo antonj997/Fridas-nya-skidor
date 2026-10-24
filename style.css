@@ -1042,3 +1042,6 @@ html.intro-mode body{position:fixed;inset:0;width:100%;height:var(--deck-height,
  .intro-beat{animation:none!important;opacity:1;filter:none;transform:none;visibility:visible}
  .intro-copy>.intro-prompt{transition:none}
 }
+
+/* The moving photo sits on white: no per-frame blending or image transition. */
+.swipe-product>.model-card-product{mix-blend-mode:normal;transition:none;backface-visibility:hidden}
