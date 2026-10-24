@@ -22,7 +22,8 @@ En minimalistisk, responsiv guide till tio pistskidor, byggd för GitHub Pages u
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
 - Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 24 oktober 2026: fyra listningar har pris. Alla listningar visas med beräknad personlig 20 % rabatt på skidpaketet, utan frakt. Lagerstatus och rabattvillkor behålls separat; slutsålda och saknade längder räknas inte som köpbara erbjudanden. Äldre GT80 skiljs från senaste versionen. Bara det billigaste jämförbara erbjudandet fetmarkeras.
-- Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.
+- Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller delad databas för val. Dina val följer inte med publiceringen och en annan webbläsare börjar med egna tomma val.
+- Återställ allt i ?-menyn har bekräftelse, rensar endast appens tre lagringsnycklar, visar alla skidor, återställer jämförelse/sortering/årsmodell och öppnar välkomsten igen. Rensa mina svep finns kvar som ett mindre ingrepp.
 - Tangentbordsstöd, tydliga fokustillstånd och minskad rörelse.
 
 ## Uppdatera
