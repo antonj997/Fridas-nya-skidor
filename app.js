@@ -5,7 +5,7 @@ import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experi
 import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261024return1';
 import {media} from './media.js?v=20261024gallery1';
 import {offers,priceCheck} from './offers.js?v=20261024skis10';
-import {skiStarCheck,skiStarOffers,skiStarTotal,skiStarListedTotal,skiStarDiscountApplies,skiStarMatch,lowestPriceSource} from './skistar.js?v=20261024return1';
+import {skiStarCheck,skiStarOffers,skiStarTotal,skiStarListedTotal,skiStarDiscountApplies,skiStarMatch,lowestPriceSource} from './skistar.js?v=20261024discount1';
 import {modelVersions} from './versions.js?v=20261024gallery1';
 const savedChoiceIcons={...choiceIcons,unsure:unsureChoiceIcon};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];

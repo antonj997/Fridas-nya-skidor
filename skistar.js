@@ -1,4 +1,4 @@
-export const skiStarCheck={"date":"24 oktober 2026","discount":0.2,"discountNote":"20 % rabatt beräknas på köpbara skidpaket. Prispressat visas utan extra rabatt.","shippingUrl":"https://www.skistarshop.com/se/kundservice/frakt-och-leverans"};
+export const skiStarCheck={"date":"24 oktober 2026","discount":0.2,"discountNote":"Alla SkiStar-priser är beräknade med 20 % på skidpaketet. Frakten rabatteras inte.","shippingUrl":"https://www.skistarshop.com/se/kundservice/frakt-och-leverans"};
 export const skiStarOffers={
  "gt80": {
   "status": "available",
@@ -32,7 +32,7 @@ export const skiStarOffers={
   "length": 162,
   "url": "https://www.skistarshop.com/se/utrustning/skidor/pistskidor/peregrine-80-24-25-one-colour-808438",
   "stockNote": "162 cm slut · 2024/25",
-  "versionNote": "Äldre 2024/25-listning med Lowride 12 TCX. Alla skidlängder och bindningen är slut. Priset är butikens listade pris inklusive publicerad frakt, utan rabatt.",
+  "versionNote": "Äldre 2024/25-listning med Lowride 12 TCX. Alla skidlängder och bindningen är slut. Priset här är beräknat med 20 % rabatt och frakt.",
   "checkedAt": "24 oktober 2026",
   "price": 10999,
   "shipping": 199,
@@ -76,7 +76,7 @@ export const skiStarOffers={
   "url": "https://www.skistarshop.com/se/utrustning/skidor/pistskidor/redster-q9-rvsk-s-i-12-gw-one-colour-830869",
   "stockNote": "160 cm saknas",
   "checkedAt": "24 oktober 2026",
-  "versionNote": "Aktuell Q9 med I12 GW finns i 167, 174 och 181 cm, inte rekommenderade 160 cm. Prispressat kan inte kombineras med andra rabatter; ingen extra rabatt är inräknad.",
+  "versionNote": "Aktuell Q9 med I12 GW finns i 167, 174 och 181 cm, inte rekommenderade 160 cm. 20 % är inräknat här enligt din rabatt. SkiStars Prispressat-villkor undantar extra rabatt; rabatten är inte bekräftad i kassan.",
   "price": 9999,
   "shipping": 199,
   "binding": "P I 12 GW Black",
@@ -91,7 +91,8 @@ export const skiStarOffers={
   "versionNote": "Ingen verifierad e-Rally 2026/27 i 163 cm hittades. Ingen rabatt eller frakt räknas fram för en saknad produkt."
  }
 };
-export function skiStarDiscountApplies(offer){return offer?.status==='available'&&offer.discountEligible!==false;}
+// The presentation always calculates Frida's 20%; availability and retailer terms stay separate.
+export function skiStarDiscountApplies(offer){return ['available','sold-out','wrong-length'].includes(offer?.status)&&[offer.price,offer.shipping].every(Number.isFinite);}
 export function skiStarListedTotal(offer){
  if(!['available','sold-out','wrong-length'].includes(offer?.status)||![offer.price,offer.shipping].every(Number.isFinite))return null;
  const discount=skiStarDiscountApplies(offer)?skiStarCheck.discount:0;
