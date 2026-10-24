@@ -1,7 +1,7 @@
 import {createChoiceArrival} from './completion.js?v=20261023direct1';
 import {createImageViewer} from './viewer.js?v=20261024gallery1';
 import {cleanChoices,voteFor,hideSki,selectVisible,choiceNames,swipeGroups} from './choices.js?v=20261022overview3';
-import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experience.js?v=20261024return1';
+import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experience.js?v=20261024covers1';
 import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261024return1';
 import {media} from './media.js?v=20261024gallery1';
 import {offers,priceCheck} from './offers.js?v=20261024skis10';
@@ -138,7 +138,7 @@ function updateChrome(){
  document.title=state.view==='detail'?`${skis.find(s=>s.id===state.detail)?.name} — Till Frida`:'Till Frida · Skidorna';
 }
 function render(){choiceArrival.cancel();updateChrome();$('#content').classList.toggle('models-view',state.view==='models');if(['intro','reveal','deck'].includes(state.view)){$('#content').innerHTML=experience.render(state.view);experience.mount(state.view);document.documentElement.classList.remove('app-loading');return;}experience.stop();const items=rankSkis(selectVisible(skis,preferences,{hidden:state.view==='models'&&state.showHidden}),state.perspective,state.reverse);$('#content').innerHTML=state.view==='models'?models(items):state.view==='compare'?compare():state.view==='detail'?detail(skis.find(s=>s.id===state.detail)):ranking(items);mountCompareContext();document.documentElement.classList.remove('app-loading');}
-const experience=createExperience({skis:rankSkis(skis,'anton'),getChoices:()=>preferences,onVote:recordVote,onFinish:origin=>{pendingDeal=origin||null;state.perspective='anton';state.choiceFilter='all';state.showHidden=false;navigate('models');},onNavigate:navigate,onImage:openSkiImage,onWelcomeSeen:markWelcomeSeen,zoomHint,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml});
+const experience=createExperience({skis:rankSkis(skis,'anton'),getChoices:()=>preferences,onVote:recordVote,onFinish:origin=>{pendingDeal=origin||null;state.perspective='anton';state.choiceFilter='all';state.showHidden=false;navigate('models');},onNavigate:navigate,onImage:openSkiImage,onWelcomeSeen:markWelcomeSeen,zoomHint,cardImage,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml});
 
 let previousView='models';
 function navigate(view,id){if(view==='detail'){if(['ranking','models','deck','compare'].includes(state.view))previousView=state.view;state.gallery=0;}const hash=view==='detail'?'#skida/'+id:{intro:'#start',reveal:'#upptack',deck:'#val',ranking:'#topplista',models:'#skidor',compare:'#jamfor'}[view];if(location.hash===hash){readRoute();return;}location.hash=hash;}

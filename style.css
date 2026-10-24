@@ -164,7 +164,7 @@ body.experience-mode{padding:0}
 .reveal-screen{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;background:var(--paper)}
 .reveal-stage{position:relative;width:min(420px,85vw);height:min(470px,65svh);margin-bottom:35px}
 .reveal-frame{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 35px;background:#f9f9f6;border-radius:16px;opacity:0;box-shadow:0 18px 40px #24242208;will-change:transform,opacity}
-.reveal-frame img{width:100%;height:calc(100% - 44px);object-fit:contain;mix-blend-mode:multiply}
+.reveal-frame>.model-card-product{width:100%;height:calc(100% - 44px);flex:1;min-height:0;mix-blend-mode:multiply}
 .reveal-frame img.wide-product{width:300px;height:180px;margin:auto;max-width:none}
 .reveal-frame>span{font-size:13px;margin-top:20px;text-align:center}
 .reveal-screen>p{font-size:14px;margin:0 0 12px}
