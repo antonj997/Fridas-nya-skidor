@@ -185,7 +185,7 @@ difficulty:{label:'Svårighetsgrad',title:'Svårighetsgrad',description:'Mest f�
 potential:{label:'Utvecklingspotential',title:'Utvecklingspotential',description:'Utrymme att utvecklas. Styvare är inte automatiskt bättre.',kind:'Subjektiv · delade placeringar',key:'potential'},
 width:{label:'Bredd',title:'Midjebredd',description:'Smalast först. Bredare skidor ger mer stöd i mjuk pist.',kind:'Modellfakta · millimeter',key:'width'},
 radius:{label:'Radie',title:'Svängradie',description:'Kortast radie först, alltid vid rekommenderad längd.',kind:'Modellfakta · vid rekommenderad längd',key:'radius'},
-price:{label:'Pris till Sverige',title:'Pris till Sverige',description:'Inklusive frakt.',kind:'Pris till Sverige',key:'totalSek'}
+price:{label:'Pris',title:'Pris',description:'Inklusive frakt.',kind:'Pris till Sverige',key:'totalSek'}
 };
 export function rankSkis(items,perspective='anton',reverse=false){const key=perspectives[perspective]?.key||'anton';return [...items].sort((a,b)=>{if(key==='totalSek'){const tier=s=>s.offer?.verified?0:Number.isFinite(s.totalSek)?1:2;const t=tier(a)-tier(b);if(t)return t;}const av=a[key],bv=b[key];if(!Number.isFinite(av)||!Number.isFinite(bv))return Number.isFinite(av)?-1:Number.isFinite(bv)?1:a.difficulty-b.difficulty;const delta=key==='potential'?bv-av:av-bv;return (reverse?-delta:delta)||a.difficulty-b.difficulty;});}
 export function filterSkis(items,{query='',shortlist=false,width='all',effort='all'}={}){return items.filter(s=>(!shortlist||s.shortlist)&&(`${s.brand} ${s.name}`.toLocaleLowerCase('sv').includes(query.trim().toLocaleLowerCase('sv')))&&(width==='all'||(width==='narrow'?s.width<=75:s.width>=76))&&(effort==='all'||(effort==='easier'?s.difficulty<=4:s.difficulty>=5)));}

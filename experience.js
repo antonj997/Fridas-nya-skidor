@@ -3,13 +3,13 @@ const icon=(path,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="
 const icons={like:icon('m5 12 4 4L19 6'),dislike:icon('m6 6 12 12M18 6 6 18'),unsure:icon('M12 20V4m-6 6 6-6 6 6'),arrow:icon('M4 12h16m-6-6 6 6-6 6'),undo:icon('M9 5 4 10l5 5M4 10h9a6 6 0 0 1 0 12')};
 const swipeArrows={dislike:icon('M20 12H4m6-6-6 6 6 6'),unsure:icons.unsure,like:icons.arrow};
 export const choiceIcons=icons;
-export function startVisit(location,history){
+export function startVisit(location,history,seenWelcome=false,hasChoices=false){
  const entry=new URL(location.href);
- entry.hash='start';
+ entry.hash=seenWelcome?(hasChoices?'skidor':'val'):'start';
  history.replaceState(history.state,'',entry.href);
 }
 export const unsureChoiceIcon='<svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 0 1 8 0c0 3-4 3-4 6M12 18h.01"/></svg>';
-export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onImage,zoomHint,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml}){
+export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onImage,onWelcomeSeen=()=>{},zoomHint,scoreCategories,scoreBar,priceSummary,priceStatus,priceElement,priceExtras,alwaRecommendation,abilityScale,escapeHtml}){
  const root=()=>document.querySelector('#content');
  const ids=()=>skis.map(s=>s.id);
  let queue=[],index=0,history=[],busy=false,drag=null,animations=[],run=0,view='',abort;
@@ -58,7 +58,7 @@ export function createExperience({skis,getChoices,onVote,onFinish,onNavigate,onI
   signal.addEventListener('abort',()=>clearTimeout(timer),{once:true});
  }
  function mount(nextView){stop();view=nextView;abort=new AbortController();const signal=abort.signal;
-  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin')&&!b.disabled){b.disabled=true;onNavigate(Object.keys(getChoices().votes).length?'models':reduced()?'deck':'reveal');}if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
+  root().addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.hasAttribute('data-begin')&&!b.disabled){b.disabled=true;onWelcomeSeen();onNavigate(reduced()?'deck':'reveal');}if(b.hasAttribute('data-skip-reveal'))onNavigate('deck');if(b.dataset.swipe)choose(b.dataset.swipe);if(b.hasAttribute('data-undo'))undo();},{signal});
   if(view==='intro')void armIntro(signal);if(view==='deck')bindCard();if(view==='reveal')animateReveal();
  }
  return {start,stop,mount,render:nextView=>nextView==='intro'?intro():nextView==='reveal'?reveal():deck()};
