@@ -164,8 +164,22 @@ skis.push(...[
  }
 ]);
 // END CURRENT SPORT ALTERNATIVES
+// Anton's personal order and reasons are separate from the technical scores.
+const antonChoices={
+ gt80:[1,'Bäst balans'],
+ addikt:[2,'Bäst grafik'],
+ gtx:[3,'Bäst utvecklingspotential'],
+ forza:[4,'Snabb svängstart'],
+ peregrine:[5,'Mångsidig i uppkörd pist'],
+ q9:[6,'Lugn och dämpad'],
+ rally:[7,'Grepp och precision'],
+ elan:[8,'Alternativ'],
+ mx74:[8,'Alternativ'],
+ phoenix:[8,'Alternativ']
+};
+for(const ski of skis){[ski.anton,ski.antonReason]=antonChoices[ski.id];}
 export const perspectives={
-anton:{label:'Antons topplista',title:'Antons topplista',description:'GT 80 först, Addikt för mer livlig carving.',kind:'Subjektiv rekommendation',key:'anton'},
+anton:{label:'Antons topplista',title:'Antons topplista',description:'Mina val och varför jag gillar dem.',kind:'Subjektiv rekommendation',key:'anton'},
 reviews:{label:'Bäst recensioner',title:'Testomdömen',description:'Min tolkning av testerna, inte ett snittbetyg.',kind:'Redaktionell testsammanvägning',key:'review'},
 difficulty:{label:'Svårighetsgrad',title:'Svårighetsgrad',description:'Mest följsam först. Placeringarna är ungefärliga.',kind:'Subjektiv · för dig',key:'difficulty'},
 potential:{label:'Utvecklingspotential',title:'Utvecklingspotential',description:'Utrymme att utvecklas. Styvare är inte automatiskt bättre.',kind:'Subjektiv · delade placeringar',key:'potential'},
