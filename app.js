@@ -1,12 +1,14 @@
 import {createChoiceArrival} from './completion.js?v=20261023direct1';
 import {createImageViewer,productImageFrame} from './viewer.js?v=20261022overview3';
 import {cleanChoices,voteFor,hideSki,selectVisible,choiceNames,swipeGroups} from './choices.js?v=20261022overview3';
-import {createExperience,choiceIcons,unsureChoiceIcon} from './experience.js?v=20261023welcome5';
+import {createExperience,choiceIcons,unsureChoiceIcon,startVisit} from './experience.js?v=20261024visit2';
 import {skis,perspectives,scoreCategories,rankSkis,toggleSelection,normalizeComparison} from './data.js?v=20261023simple1';
 import {media} from './media.js?v=20261024cards1';
 import {offers,priceCheck} from './offers.js?v=20261022overview3';
 import {skiStarCheck,skiStarOffers,skiStarTotal,skiStarMatch,lowestPriceSource} from './skistar.js?v=20261023simple1';
 import {modelVersions} from './versions.js?v=20261022overview3';
+// Start every document visit at the welcome screen; saved choices stay in localStorage.
+startVisit(location,history);
 const savedChoiceIcons={...choiceIcons,unsure:unsureChoiceIcon};
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 document.documentElement.dataset.inputMode='pointer';
