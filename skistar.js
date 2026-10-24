@@ -1,4 +1,4 @@
-export const skiStarCheck={"date":"24 oktober 2026","discount":0.2,"discountNote":"Alla SkiStar-priser är beräknade med 20 % på skidpaketet. Frakten rabatteras inte.","shippingUrl":"https://www.skistarshop.com/se/kundservice/frakt-och-leverans"};
+export const skiStarCheck={"date":"24 oktober 2026","discount":0.2,"discountNote":"Alla SkiStar-priser avser skidpaketet med beräknad 20 % rabatt.","shippingUrl":"https://www.skistarshop.com/se/kundservice/frakt-och-leverans"};
 export const skiStarOffers={
  "gt80": {
   "status": "available",
@@ -32,7 +32,7 @@ export const skiStarOffers={
   "length": 162,
   "url": "https://www.skistarshop.com/se/utrustning/skidor/pistskidor/peregrine-80-24-25-one-colour-808438",
   "stockNote": "162 cm slut · 2024/25",
-  "versionNote": "Äldre 2024/25-listning med Lowride 12 TCX. Alla skidlängder och bindningen är slut. Priset här är beräknat med 20 % rabatt och frakt.",
+  "versionNote": "Äldre 2024/25-listning med Lowride 12 TCX. Alla skidlängder och bindningen är slut. Priset här avser skidpaketet med beräknad 20 % rabatt.",
   "checkedAt": "24 oktober 2026",
   "price": 10999,
   "shipping": 199,
@@ -92,14 +92,13 @@ export const skiStarOffers={
  }
 };
 // The presentation always calculates Frida's 20%; availability and retailer terms stay separate.
-export function skiStarDiscountApplies(offer){return ['available','sold-out','wrong-length'].includes(offer?.status)&&[offer.price,offer.shipping].every(Number.isFinite);}
+export function skiStarDiscountApplies(offer){return ['available','sold-out','wrong-length'].includes(offer?.status)&&Number.isFinite(offer.price);}
 export function skiStarListedTotal(offer){
- if(!['available','sold-out','wrong-length'].includes(offer?.status)||![offer.price,offer.shipping].every(Number.isFinite))return null;
- const discount=skiStarDiscountApplies(offer)?skiStarCheck.discount:0;
- return Math.round((offer.price*(1-discount)+offer.shipping)*100)/100;
+ if(!skiStarDiscountApplies(offer))return null;
+ return Math.round(offer.price*(1-skiStarCheck.discount)*100)/100;
 }
 export function skiStarTotal(offer){
- if(offer?.status!=='available'||![offer.price,offer.shipping,offer.length].every(Number.isFinite))return null;
+ if(offer?.status!=='available'||![offer.price,offer.length].every(Number.isFinite))return null;
  return skiStarListedTotal(offer);
 }
 export function skiStarMatch(ski){

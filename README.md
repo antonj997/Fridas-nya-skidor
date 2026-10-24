@@ -20,7 +20,7 @@ En minimalistisk, responsiv guide till tio pistskidor, byggd för GitHub Pages u
 - Atomic Redster Q9 Revoshock S och Head Supershape e-Rally 2026/27 kompletterar de ursprungliga åtta. Q9 rekommenderas i 160 cm (12,6 m) och e-Rally i 163 cm (12,7 m). Bilder, paket, testkällor och priser kontrollerade 24 oktober 2026.
 - Rekommenderad skidlängd för varje modell; radier avser den rekommenderade längden.
 - Priser, längdspecifikt lager och svensk skidfrakt kontrollerade 21 oktober 2026. Euroerbjudanden är preliminära där slutlig svensk moms inte kassaverifierats.
-- Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 24 oktober 2026: fyra listningar har pris inklusive 199 kr frakt. Alla listningar visas med beräknad personlig 20 % rabatt på skidpaketet och full frakt. Lagerstatus och rabattvillkor behålls separat; slutsålda och saknade längder räknas inte som köpbara erbjudanden. Äldre GT80 skiljs från senaste versionen. Bara det billigaste jämförbara erbjudandet fetmarkeras.
+- Alwas rekommendation på GTX och personliga prisnoteringar på Fischer. SkiStars utbud kontrollerat 24 oktober 2026: fyra listningar har pris. Alla listningar visas med beräknad personlig 20 % rabatt på skidpaketet, utan frakt. Lagerstatus och rabattvillkor behålls separat; slutsålda och saknade längder räknas inte som köpbara erbjudanden. Äldre GT80 skiljs från senaste versionen. Bara det billigaste jämförbara erbjudandet fetmarkeras.
 - Sparade jämförelseval i webbläsaren. Inga konton, analysverktyg eller externa sidberoenden.
 - Tangentbordsstöd, tydliga fokustillstånd och minskad rörelse.
 
